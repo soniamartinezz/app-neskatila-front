@@ -1,24 +1,25 @@
 #root {
   max-width: 1280px;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   font-family: "Raleway", sans-serif;
   font-style: normal;
+  overflow: auto;
 }
 
 .navbar {
   width: 100%;
   padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -28,6 +29,9 @@
   cursor: pointer;
   padding: 16px 32px;
   display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar ul li:nth-child(1) {
@@ -41,7 +45,6 @@
 
 .navbar ul li:nth-child(1):hover,
 .navbar ul li:nth-child(1).active {
-  border-bottom: 2px solid #cfcf16;
   background-color: #e7e7a8;
   color: #000;
 }
@@ -57,7 +60,6 @@
 
 .navbar ul li:nth-child(2):hover,
 .navbar ul li:nth-child(2).active {
-  border-bottom: 2px solid #c25f5f;
   background-color: #f5c9c9;
   color: #000;
 }
@@ -73,7 +75,6 @@
 
 .navbar ul li:nth-child(3):hover,
 .navbar ul li:nth-child(3).active {
-  border-bottom: 2px solid #5a045a;
   background-color: #8d628d70;
   color: #000;
 }
@@ -86,15 +87,12 @@
 }
 
 .container {
-  width: 80%;
-}
-
-.container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  margin-top: 32px;
+  align-items: center;
+  padding-bottom: 32px;
 }
 
 .container h1 {
@@ -103,21 +101,28 @@
   border-bottom: 1px solid #d7d7d7;
   padding-bottom: 8px;
   font-size: 24px;
+  cursor: default;
+}
+
+.container p {
+  cursor: default;
 }
 
 .content {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 32px;
 }
 
 .images {
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-top: 32px;
 }
 
 .logo-thebrigde {
@@ -125,8 +130,10 @@
 }
 
 .logo-neskatila {
-  width: 56%;
-  height: 80%;
+  width: 42%;
+  height: 96%;
+  border: 2px solid #fff;
+  border-radius: 8px;
 }
 
 .translate {
@@ -151,10 +158,8 @@
   border: none;
   border-radius: 4px;
   margin-bottom: 32px;
-}
-
-.button-language:hover {
-  transform: scale(1.2);
+  width: 32%;
+  border-radius: 32px;
 }
 
 .button-language:focus {
@@ -167,6 +172,20 @@
 
 .button-language.spanish {
   background: linear-gradient(88deg, rgba(218, 41, 28, 1) 0%, rgba(250, 189, 0, 1) 50%, rgba(218, 41, 28, 1) 100%);
+}
+
+.footer {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer svg {
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
