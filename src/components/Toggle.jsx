@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-function Toggle() {
-
-    const [ textButton, setTextButton ] = useState('Español ➔ Euskera');
+function Toggle({ onToggle }) {
+    const [textButton, setTextButton] = useState('Español ➔ Euskera');
 
     const handleChange = (event) => {
-        setTextButton(event.target.value === 'Español ➔ Euskera' ? 'Euskera ➔ Español' : 'Español ➔ Euskera' )
+        const newValue = event.target.value === 'Español ➔ Euskera' ? 'Euskera ➔ Español' : 'Español ➔ Euskera';
+        setTextButton(newValue);
+        onToggle(newValue);
     }
 
     return(
