@@ -1,14 +1,12 @@
-import Navbar from "../components/Navbar";
 import Toggle from "../components/Toggle";
+import Footer from "../components/Footer";
 
 function Translate() {
     return(
         <>
-            <div className="header"></div>
             <main className="container">
-                <Navbar />
                 <section className="content">
-                    <h1>neskatila v1.6.0</h1>
+                    <h1>neskatila</h1>
                     <p>¡Explora el español y el euskera con nuestro traductor!</p>
                     <div className="translate">
                         <Toggle />
@@ -16,7 +14,7 @@ function Translate() {
                     </div>
                 </section>
             </main>
-
+            <Footer />
         </>
     )
 }

@@ -1,13 +1,11 @@
-import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
 import logoTheBridge from '../assets/logo-thebrigde.png';
 import logoNeskatila from '../assets/logo3.png';
 
 function Home() {
     return(
         <>
-            <div className="header"></div>
             <main className="container">
-                <Navbar />
                 <section className="content">
                     <h1>neskatila v1.6.0</h1>
                     <p>Neskatila es una herramienta de traducción que facilita de manera rápida y sencilla la conversión entre euskera y castellano, ofreciendo una solución eficiente para esta tarea</p>
@@ -17,6 +15,7 @@ function Home() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     )
 }

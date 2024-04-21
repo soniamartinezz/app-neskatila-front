@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Home from './views/Home'
 import Translate from './views/Translate';
 import UseRules from './views/UseRules';
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Router>
+        <Navbar />
         <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/traducir" element={<Translate />}></Route>
