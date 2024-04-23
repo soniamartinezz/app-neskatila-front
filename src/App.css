@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -8,7 +8,6 @@
   font-family: "Raleway", sans-serif;
   font-style: normal;
   overflow: auto;
-  background-color: #fff;
 }
 
 .navbar {
@@ -169,12 +168,10 @@
 
 .button-language.euskera {
   background: #E9E991;
-  color: #000;
 }
 
 .button-language.spanish {
-  background: rgb(55 57 67);
-  color: #fff;
+  background: rgb(212 245 229);
 }
 
 .footer {
