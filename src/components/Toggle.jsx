@@ -6,7 +6,7 @@ function Toggle({ onToggle }) {
     const handleChange = (event) => {
         const newValue = event.target.value === 'Español ➔ Euskera' ? 'Euskera ➔ Español' : 'Español ➔ Euskera';
         setTextButton(newValue);
-        onToggle(newValue);
+        onToggle(newValue, textButton);
     }
 
     return(
