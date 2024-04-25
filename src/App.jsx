@@ -8,7 +8,6 @@ import UseRules from './views/UseRules';
 import './App.css';
 
 function App({ handleClick, isDark }) {
-  console.log("isDark:", isDark);
   return (
     <>
       <Router>

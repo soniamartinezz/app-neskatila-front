@@ -4,9 +4,8 @@ import App from './App';
 import './index.css';
 
 function Main() {
-  const [isDark, setIsDark] = useState(true); // Estado para controlar el tema
+  const [ isDark, setIsDark ] = useState(true);
 
-  // Función para cambiar entre el modo oscuro y claro
   const handleClick = () => {
     setIsDark(!isDark);
   };
