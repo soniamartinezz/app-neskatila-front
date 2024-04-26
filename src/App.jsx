@@ -20,7 +20,7 @@ function App({ handleClick, isDark }) {
           <Route path="/traducir" element={<Translate />} />
           <Route path="/normas-uso" element={<UseRules />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/registro" element={<RegisterForm />} />
         </Routes>
       </Router>
     </>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -32,7 +32,7 @@ function LoginForm() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Validación de la contraseña
@@ -50,6 +50,20 @@ function LoginForm() {
     // Limpia los campos después del envío
     setEmail('');
     setPassword('');
+
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const navigate = useNavigate();
+    if (response.ok) {
+      navigate('/normas-uso');
+    }
+
   };
 
   return (
@@ -68,7 +82,7 @@ function LoginForm() {
         </div>
         <button type="submit">Iniciar sesión</button>
       </form>
-      <Link to="/register">
+      <Link to="/registro">
         <button type="button">Registrarse</button>
       </Link>
     </div>

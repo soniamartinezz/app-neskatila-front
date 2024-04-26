@@ -2,90 +2,64 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function RegisterForm() {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [passwordError, setPasswordError] = useState('');
   const [error, setError] = useState('');
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-    if (confirmPassword) {
-      // Validación de contraseña
-      if (event.target.value !== confirmPassword) {
-        setPasswordError('Las contraseñas no coinciden');
-      } else {
-        setPasswordError('');
-      }
-    }
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-    // Validación de contraseña
-    if (password && event.target.value !== password) {
-      setPasswordError('Las contraseñas no coinciden');
-    } else {
-      setPasswordError('');
-    }
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-    // Validación básica del correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(event.target.value)) {
-      setError('Ingrese un correo electrónico válido');
-    } else {
-      setError('');
-    }
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Validación de contraseña
-    if (password !== confirmPassword) {
-      setPasswordError('Las contraseñas no coinciden');
-      return;
+
+    try {
+      const response = await fetch('http://localhost:3000/registro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      if (response.ok) {
+        alert('Usuario registrado exitosamente');
+        setUsername('');
+        setPassword('');
+        setError('');
+      } else {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Error al conectar con el servidor');
     }
-    // Validación básica del correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError('Ingrese un correo electrónico válido');
-      return;
-    }
-    // Aquí podrías enviar los datos del formulario a tu servidor para el registro
-    console.log('Password:', password);
-    console.log('Email:', email);
-    // Limpia los campos después del envío
-    setPassword('');
-    setConfirmPassword('');
-    setEmail('');
-    setPasswordError('');
-    setError('');
   };
 
   return (
     <div>
-      <h2>Registro</h2>
+      <h2>Registro de Usuario</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Contraseña:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} placeholder="Ingrese su contraseña" required />
+          <label htmlFor="username">Nombre de Usuario:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </div>
         <div>
-          <label>Confirmar Contraseña:</label>
-          <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} placeholder="Confirme su contraseña" required />
-          {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={handleEmailChange} placeholder="Ingrese su correo electrónico" required />
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <label htmlFor="password">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
         <button type="submit">Registrarse</button>
       </form>
-      <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
 }
