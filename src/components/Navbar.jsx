@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import LoginButton from './LoginButton';
 
 function Navbar() {
     const location = useLocation();
@@ -12,6 +13,7 @@ function Navbar() {
     return (
         <>
             <div className="header"></div>
+            <LoginButton />
             <nav className='navbar'>
                 <ul>
                     <li className={`${activePath === '/' ? "active" : ""}`}>

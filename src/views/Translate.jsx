@@ -15,7 +15,9 @@ function Translate() {
     const handleChangeLanguage = (newLanguage, textButtonValue) => {
         setLanguage(newLanguage);
         setPlaceholderText(textButtonValue === 'Español ➔ Euskera' ? 'Idatzi zure Webgunearen testuak' : 'Escribe los textos de tu Web');
-        handleTranslate(textButtonValue);
+        if(textAreaValue){
+            handleTranslate(textButtonValue);
+        }
     };
 
     const handleTextAreaChange = (event) => {
@@ -52,7 +54,6 @@ function Translate() {
                             <textarea ref={textAreaRef} value={textAreaValue} onChange={handleTextAreaChange} placeholder={placeholderText}></textarea>
                         )}
                     </div>
-                    <ButtonFavorites />
                 </section>
             </main>
             <Footer />
