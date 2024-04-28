@@ -1,10 +1,8 @@
 function ButtonFavorites() {
-    console.log('ButtonFavorites renderizado'); // Agrega este mensaje de depuración
-
     return(
         <>
             <button 
-                className={`button-save-favorites`}
+                className="button-save"
                 type="button"
                 value="Guardar"
             >

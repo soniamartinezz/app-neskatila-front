@@ -86,7 +86,7 @@ function RegisterForm() {
           <div className='buttons'>
             <button className="registro" type="submit">Regístrate</button>
             <Link to="/login">
-              <button className="login" type="button">Iniciar sesión</button>
+              <button className="login" type="button">Inicia sesión</button>
             </Link>
           </div>
         </form>

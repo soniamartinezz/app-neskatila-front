@@ -1,8 +1,8 @@
-// Translate.js
 import React, { useEffect } from "react";
 import axios from 'axios';
 import ButtonTranslate from "../components/ButtonTranslate";
 import ButtonFavorites from "../components/ButtonFavorites";
+import ButtonView from "../components/ButtonView";
 import Footer from "../components/Footer";
 import Spinner from "../components/Spinner";
 
@@ -40,13 +40,7 @@ function Translate({ isLoggedIn }) {
             setIsLoading(false);
         }
     };
-
-    useEffect(() => {
-        if (isLoggedIn) {
-            console.log('isLoggedIn:', isLoggedIn);
-        }
-    }, [isLoggedIn]);
-
+    
     return (
         <>
             <main className="container">
@@ -56,7 +50,7 @@ function Translate({ isLoggedIn }) {
                     <div className="translate">
                         <ButtonTranslate language={handleChangeLanguage} />
                         {isLoggedIn && <ButtonFavorites />}
-                        {isLoggedIn && <p>hola</p>}
+                        {isLoggedIn && <ButtonView />}
                         {isLoading ? (
                             <Spinner />
                         ) : (

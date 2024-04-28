@@ -19,6 +19,7 @@
 .root.light,
 .root.light .translate textarea {
 	background: #fff;
+	color: #242424;
 }
 
 .root.light .translate textarea {
@@ -38,6 +39,34 @@
 .root.dark .formulario-registro .username input, 
 .root.dark .formulario-registro .password input {
     color: #fff;
+	background: #242424;
+}
+
+.root.light .options-user button {
+	border: 1px solid #fff;
+	background-color: #fff;
+	color: #242424;
+}
+
+.root.dark .options-user button {
+	border: 1px solid #242424;
+	background-color: #242424;
+	color: #fff;
+}
+
+.root.dark .button-view {
+	background: #242424;
+}
+
+.root.light .button-view {
+	background: #fff;
+}
+
+.root.light .button-save {
+	background: #fff;
+}
+
+.root.dark .button-save {
 	background: #242424;
 }
 
@@ -147,7 +176,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-bottom: 32px;
 }
 
 .container h1 {
@@ -208,37 +236,110 @@
 	border-radius: 4px;
 	border-color: #d4d4d4;
 	font-style: italic;
+	margin-top: 32px;
 }
 
+/* Botón para traducir */
 .button-language {
 	border: none;
 	border-radius: 4px;
-	margin-bottom: 32px;
-	width: 32%;
-	border-radius: 32px;
+	margin: 16px 0;
+	width: 42%;
+	font-size: 16px;
+	border-radius: 4px;
+	background-color: #2f6627;
+}
+
+.button-language:hover {
+	background-color: #38dc8a;
+}
+
+.button-language:active {
+	position:relative;
+	top:1px;
 }
 
 .button-language:focus {
 	outline: 0;
 }
 
-.button-language.euskera {
-	background: #5e9843;
+/* Botón guardar traducciones */
+.button-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 0px;
+	width: 32%;
+    height: 40px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+    border: none;
+	margin: 16px 0;
+	color: #2f6627;
+}
+  
+.button-save::before, 
+.button-save::after {
+	content: "";
+	display: block;
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	transition: .3s;
+	background-color: #2f6627;
 }
 
-.button-language.spanish {
-	background: #49b118;
+.button-save::before {
+	top: 0;
+}
+  
+.button-save::after {
+	bottom: 0;
+}
+  
+.button-save:hover::before {
+	transform: translateX(-100%);
+}
+  
+.button-save:hover::after {
+	transform: translateX(100%);
 }
 
-.button-save-favorites {
-	border: none;
-	border-radius: 4px;
-	margin-bottom: 32px;
-	width: 84%;
-	border-radius: 32px;
-	background: orange;
+.button-save:hover {
+    color: #2f6627;
 }
 
+/* Botón ver traducciones guardadas */
+.button-view {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	text-decoration: none;
+	color: #2f6627;
+	font-size: 16px;
+	border-radius: 0px;
+	width: 100%;
+	height: 40px;
+	border-top: 1px solid #2f6627;
+	border-right: 1px solid #2f6627;
+	border-left: 20px solid #2f6627;
+	border-bottom: 1px solid #2f6627;
+	transition: 0.3s;
+	margin: 16px 0;
+}
+
+.button-view:hover {
+	border-left-width: 1px;
+	border-color: #2f6627;
+}
+
+/* Footer */
 .footer {
 	position: sticky;
 	z-index: -1;
@@ -253,15 +354,26 @@
 	width: 100%;
 }
 
-.switch {
-	position: absolute;
-	display: inline-block;
-	width: 120px;
-	height: 34px;
-	right: 0;
+.options-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
 }
 
-.slider {
+.options-user .show-username {
+   cursor: default;
+}
+
+/* ToggleSwitch */
+.switch {
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.switch .slider {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -269,7 +381,7 @@
 	height: 100%;
 }
 
-.word {
+.switch .word {
 	cursor: pointer;
 	transition: color 0.4s;
 	padding: 0 8px;
@@ -277,15 +389,15 @@
 	font-size: 14px;
 }
 
-.light {
+.switch .light {
 	color: #000;
 }
 
-.dark {
-	color: #000;
+.switch .dark {
+	color: #fff;
 }
 
-.active {
+.switch .active {
 	color: #fff;
 }
 
@@ -356,17 +468,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	margin: 40px 0;
+	margin-top: 42px;
 }
 
 .formulario-login {
-	width: 60%;
-	display: flex;
+    width: 60%;
+    display: flex;
     flex-direction: column;
-	align-items: center;
+    align-items: center;
     padding: 48px 38px;
-	border-radius: 2px;
-    background: rgb(57 233 145);
+    border-radius: 2px;
+    background: #fff;
+    color: #242424;
+    border: 1px solid rgb(57 233 145);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -390,7 +504,7 @@
     width: 100%;
     border: none;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .formulario-login .buttons {
@@ -406,11 +520,21 @@
 .formulario-login .buttons button.login {
 	background: #5e9843;
 	margin: 0;
+	width: 200px;
+}
+
+.formulario-login .buttons button.login:hover {
+	background: #44951f;
 }
 
 .formulario-login .buttons button.registro {
-	background: #49b118;
+	background: #67cf36;
 	margin: 0 0 16px 0;
+	width: 200px;
+}
+
+.formulario-login .buttons button.registro:hover {
+	background: #48d505;
 }
 
 .formulario-login .buttons button.login:hover,
@@ -430,7 +554,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	margin: 40px 0;
+	margin-top: 42px;
 }
 
 .formulario-registro {
@@ -440,7 +564,9 @@
 	align-items: center;
     padding: 48px 38px;
 	border-radius: 2px;
-    background: rgb(57 233 145);
+	color: #242424;
+	background: #fff;
+    border: 1px solid rgb(57 233 145);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -480,11 +606,21 @@
 .formulario-registro .buttons button.login {
 	background: #5e9843;
 	margin: 0;
+	width: 200px;
+}
+
+.formulario-registro .buttons button.login:hover {
+	background: #44951f;
 }
 
 .formulario-registro .buttons button.registro {
-	background: #49b118;
+	background: #67cf36;
 	margin: 0 0 16px 0;
+	width: 200px;
+}
+
+.formulario-registro .buttons button.registro:hover {
+	background: #48d505;
 }
 
 .formulario-registro .buttons button.login:hover,
@@ -517,7 +653,24 @@
 		height: 100%;
 	}
 
-	.button-language {
+	.button-language,
+	.button-save,
+	.button-view,
+	.translate textarea {
+		width: 100%;
+	}
+	.formulario-login .buttons button, 
+	.formulario-login .buttons a,
+	.formulario-registro .buttons button, 
+	.formulario-registro .buttons a {
+		width: 200px;
+	}
+	.formulario-login .username, 
+	.formulario-login .password,
+	.formulario-registro .username, 
+	.formulario-registro .password,
+	.formulario-login .buttons,
+	.formulario-registro .buttons {
 		width: 100%;
 	}
 }

@@ -2,15 +2,17 @@ import { Link, useLocation } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import ToggleSwitch from './ToggleSwitch';
 
-function Navbar({ darkMode, setDarkMode }) {
+function Navbar({ darkMode, setDarkMode, username, isLoggedIn }) {
   const location = useLocation();
   const activePath = location.pathname;
 
   return (
     <>
       <div className="header"></div>
-      <LoginButton />
-      <ToggleSwitch setDarkMode={setDarkMode} darkMode={darkMode} />
+      <div className='options-user'>
+        <LoginButton username={username} isLoggedIn={isLoggedIn} />
+        <ToggleSwitch setDarkMode={setDarkMode} darkMode={darkMode} />
+      </div>
       <nav className='navbar'>
         <ul>
           <li className={`${activePath === '/' ? "active" : ""}`}>

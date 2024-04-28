@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 
-function LoginForm({ setIsLoggedIn }) { // Recibe setIsLoggedIn como prop
+function LoginForm({ setIsLoggedIn, onLoginSuccess }) { // Recibe setIsLoggedIn como prop
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -24,6 +24,7 @@ function LoginForm({ setIsLoggedIn }) { // Recibe setIsLoggedIn como prop
             });
 
             if (response.ok) {
+                onLoginSuccess(username);
                 setIsLoggedIn(true); // Actualiza el estado de isLoggedIn
                 localStorage.setItem('isLoggedIn', true); // Almacena isLoggedIn en localStorage
                 navigate('/traducir');
@@ -56,7 +57,7 @@ function LoginForm({ setIsLoggedIn }) { // Recibe setIsLoggedIn como prop
                     </div>
                     <div className='buttons'>
                         <Link to="/registro">
-                            <button className="registro" type="button">Regístrate</button>
+                            <button className="registro" type="button">Registro</button>
                         </Link>
                         <button className="login" type="submit">Iniciar sesión</button>
                     </div>
