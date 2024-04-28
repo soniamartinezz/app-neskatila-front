@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+// Translate.js
+import React, { useEffect } from "react";
 import axios from 'axios';
 import ButtonTranslate from "../components/ButtonTranslate";
 import ButtonFavorites from "../components/ButtonFavorites";
@@ -6,11 +7,11 @@ import Footer from "../components/Footer";
 import Spinner from "../components/Spinner";
 
 function Translate({ isLoggedIn }) {
-    const [textAreaValue, setTextAreaValue] = useState('');
-    const [language, setLanguage] = useState('Español ➔ Euskera');
-    const [placeholderText, setPlaceholderText] = useState('Escribe los textos de tu Web');
-    const [isLoading, setIsLoading] = useState(false);
-    const textAreaRef = useRef(null);
+    const [textAreaValue, setTextAreaValue] = React.useState('');
+    const [language, setLanguage] = React.useState('Español ➔ Euskera');
+    const [placeholderText, setPlaceholderText] = React.useState('Escribe los textos de tu Web');
+    const [isLoading, setIsLoading] = React.useState(false);
+    const textAreaRef = React.useRef(null);
 
     const handleChangeLanguage = (newLanguage, textButtonValue) => {
         setLanguage(newLanguage);
@@ -40,9 +41,13 @@ function Translate({ isLoggedIn }) {
         }
     };
 
-    console.log('isLoggedIn: ' + isLoggedIn)
+    useEffect(() => {
+        if (isLoggedIn) {
+            console.log('isLoggedIn:', isLoggedIn);
+        }
+    }, [isLoggedIn]);
 
-    return(
+    return (
         <>
             <main className="container">
                 <section className="content">
@@ -50,9 +55,8 @@ function Translate({ isLoggedIn }) {
                     <p>Demostración visual de como gracias a Neskatila puedes transformar instantáneamente los textos de tu sitio Web o aplicación al euskera, o al español, con solo un clic en un botón de alternancia (toggle). Solo necesitas especificar el idioma de origen de tu Web o app y Neskatila se encargará del resto. Esta demostración te mostrará cómo Neskatila evitará la necesidad de introducir los textos en un segundo idioma en tu programación”</p>
                     <div className="translate">
                         <ButtonTranslate language={handleChangeLanguage} />
-                        {isLoggedIn && (
-                            <ButtonFavorites />
-                        )}
+                        {isLoggedIn && <ButtonFavorites />}
+                        {isLoggedIn && <p>hola</p>}
                         {isLoading ? (
                             <Spinner />
                         ) : (
@@ -63,7 +67,7 @@ function Translate({ isLoggedIn }) {
             </main>
             <Footer />
         </>
-    )
+    );
 }
 
 export default Translate;

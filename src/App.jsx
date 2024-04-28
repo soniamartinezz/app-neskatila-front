@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './views/Home';
@@ -10,10 +10,19 @@ import './App.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Definir el estado isLoggedIn
 
   const handleClick = () => {
     setDarkMode(!darkMode);
   };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn) {
+      // Si isLoggedIn está en localStorage, actualiza el estado de autenticación
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div id="root" className={`root ${darkMode ? 'dark' : 'light'}`}>
@@ -21,9 +30,9 @@ function App() {
         <Navbar handleClick={handleClick} darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/traducir" element={<Translate />} />
           <Route path="/normas-uso" element={<UseRules />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} />} /> {/* Pasar setIsLoggedIn como prop */}
+          <Route path="/traducir" element={<Translate isLoggedIn={isLoggedIn} />} /> {/* Pasar isLoggedIn como prop */}
           <Route path="/registro" element={<RegisterForm />} />
         </Routes>
       </Router>
