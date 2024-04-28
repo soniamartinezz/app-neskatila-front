@@ -12,7 +12,7 @@
 
 .root.dark,
 .root.dark .translate textarea {
-	background: rgb(18 18 18) 0px 3px 12px;
+	background: #242424;
 	color: #fff;
 }
 
@@ -23,6 +23,22 @@
 
 .root.light .translate textarea {
 	color: #000;
+}
+
+.root.light .formulario-login .username input, 
+.root.light .formulario-login .password input,
+.root.light .formulario-registro .username input, 
+.root.light .formulario-registro .password input {
+	background: #fff;
+	color: #000;
+}
+
+.root.dark .formulario-login .username input, 
+.root.dark .formulario-login .password input,
+.root.dark .formulario-registro .username input, 
+.root.dark .formulario-registro .password input {
+    color: #fff;
+	background: #242424;
 }
 
 #root::-webkit-scrollbar {
@@ -347,6 +363,154 @@
 	stroke-dasharray: 43.98 307.87;
 	stroke-dashoffset: -131.94;
 	transform: rotate(-90deg);
+}
+
+/* Formulario Login */
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin: 40px 0;
+}
+
+.formulario-login {
+	width: 60%;
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+    padding: 48px 38px;
+	border-radius: 2px;
+    background: rgb(57 233 145);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.formulario-login .username, 
+.formulario-login .password {
+	width: 72%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin-bottom: 24px;
+}
+
+.formulario-login .username label, 
+.formulario-login .password label {
+	margin-bottom: 8px;
+}
+
+.formulario-login .username input, 
+.formulario-login .password input {
+    width: 100%;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.formulario-login .buttons {
+	width: 42%;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	row-gap: 8px;
+}
+
+.formulario-login .buttons button.login {
+	background: #5e9843;
+	margin: 0;
+}
+
+.formulario-login .buttons button.registro {
+	background: #49b118;
+	margin: 0 0 16px 0;
+}
+
+.formulario-login .buttons button.login:hover,
+.formulario-login .buttons button.registro:hover {
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.formulario-login .buttons button, 
+.formulario-login .buttons a {
+    width: 100%;
+	border-radius: 8px;
+}
+
+/* Formulario Login */
+.registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin: 40px 0;
+}
+
+.formulario-registro {
+	width: 60%;
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+    padding: 48px 38px;
+	border-radius: 2px;
+    background: rgb(57 233 145);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.formulario-registro .username, 
+.formulario-registro .password {
+	width: 72%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin-bottom: 24px;
+}
+
+.formulario-registro .username label, 
+.formulario-registro .password label {
+	margin-bottom: 8px;
+}
+
+.formulario-registro .username input, 
+.formulario-registro .password input {
+    width: 100%;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.formulario-registro .buttons {
+	width: 42%;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	row-gap: 8px;
+}
+
+.formulario-registro .buttons button.login {
+	background: #5e9843;
+	margin: 0;
+}
+
+.formulario-registro .buttons button.registro {
+	background: #49b118;
+	margin: 0 0 16px 0;
+}
+
+.formulario-registro .buttons button.login:hover,
+.formulario-registro .buttons button.registro:hover {
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.formulario-registro .buttons button, 
+.formulario-registro .buttons a {
+    width: 100%;
+	border-radius: 8px;
 }
 
 @media only screen and (max-width: 768px) {

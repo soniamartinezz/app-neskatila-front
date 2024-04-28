@@ -1,7 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import ToggleSwitch from './components/ToggleSwitch';
 import Home from './views/Home';
 import Translate from './views/Translate';
 import UseRules from './views/UseRules';
@@ -9,12 +8,17 @@ import LoginForm from './views/Login';
 import RegisterForm from './views/Register';
 import './App.css';
 
-function App({ handleClick, isDark }) {
+function App() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  const handleClick = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <>
+    <div id="root" className={`root ${darkMode ? 'dark' : 'light'}`}>
       <Router>
-        <Navbar />
-        <ToggleSwitch handleClick={handleClick} isDark={isDark} />
+        <Navbar handleClick={handleClick} darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/traducir" element={<Translate />} />
@@ -23,7 +27,7 @@ function App({ handleClick, isDark }) {
           <Route path="/registro" element={<RegisterForm />} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

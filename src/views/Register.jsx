@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function RegisterForm() {
@@ -10,7 +10,6 @@ function RegisterForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validar que las contraseñas sean idénticas
     if (password !== password2) {
       setError('Las contraseñas no coinciden');
       return;
@@ -48,44 +47,52 @@ function RegisterForm() {
   
 
   return (
-    <div>
-      <h2>Registro de Usuario</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Nombre de Usuario:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password2">Confirmar Contraseña:</label>
-          <input
-            type="password"
-            id="password2"
-            value={password2}
-            onChange={(e) => setPassword2(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Registrarse</button>
-        <Link to="/login">¿Ya tienes una cuenta? Inicia sesión aquí</Link>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
+    <>
+      <div className='registro'>
+        <form className="formulario-registro" onSubmit={handleSubmit}>
+          <div className='username'>
+            <label htmlFor="username">Usuario</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              placeholder='Nombre de usuario'
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className='password'>
+            <label htmlFor="password">Contraseña</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              placeholder='Contraseña'
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className='password'>
+            <label htmlFor="password2">Contraseña</label>
+            <input
+              type="password"
+              id="password2"
+              value={password2}
+              placeholder='Vuelve a escribir la contraseña'
+              onChange={(e) => setPassword2(e.target.value)}
+              required
+            />
+          </div>
+          <div className='buttons'>
+            <button className="registro" type="submit">Regístrate</button>
+            <Link to="/login">
+              <button className="login" type="button">Iniciar sesión</button>
+            </Link>
+          </div>
+        </form>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
+    </>
   );
 }
 
