@@ -1,19 +1,15 @@
 import { Link } from 'react-router-dom';
 
-function ButtonView() {
+function ButtonView({ username }) {
     return (
         <>
             <Link to="/traducciones-guardadas">
-                <button
-                    className="button-view"
-                    type="button"
-                    value="Ver"
-                >
+                <button className="button-view" type="button">
                     Traducciones guardadas
                 </button>
             </Link>
         </>
     );
-}
+};
 
-export default ButtonView; 
+export default ButtonView;

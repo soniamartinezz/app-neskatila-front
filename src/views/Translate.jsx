@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import ButtonTranslate from "../components/ButtonTranslate";
 import ButtonFavorites from "../components/ButtonFavorites";
 import ButtonView from "../components/ButtonView";
 import Footer from "../components/Footer";
 import Spinner from "../components/Spinner";
+import ModalSave from "../components/ModalSave";
 
-function Translate({ isLoggedIn }) {
-    const [textAreaValue, setTextAreaValue] = React.useState('');
-    const [language, setLanguage] = React.useState('Español ➔ Euskera');
-    const [placeholderText, setPlaceholderText] = React.useState('Escribe los textos de tu Web');
-    const [isLoading, setIsLoading] = React.useState(false);
+function Translate({ isLoggedIn, username }) {
+    const [textAreaValue, setTextAreaValue] = useState('');
+    const [language, setLanguage] = useState('Español ➔ Euskera');
+    const [placeholderText, setPlaceholderText] = useState('Escribe los textos de tu Web');
+    const [isLoading, setIsLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const textAreaRef = React.useRef(null);
 
     const handleChangeLanguage = (newLanguage, textButtonValue) => {
@@ -40,6 +42,24 @@ function Translate({ isLoggedIn }) {
             setIsLoading(false);
         }
     };
+
+    const handleSaveTranslation = async () => {
+        try {
+            const sourceLanguage = language === 'Español ➔ Euskera' ? 'es' : 'eu';
+            const translationData = {
+                userName: username,
+                texto: textAreaValue,
+                sourceLanguage: sourceLanguage 
+            };
+            console.log('Datos de traducción a enviar al backend:', translationData);
+            
+            await axios.post('http://localhost:3000/traducir', translationData);
+            console.log('Traducción guardada correctamente.');
+            setShowModal(true); // Mostrar la modal cuando la traducción se guarda correctamente
+        } catch (error) {
+            console.error('Error al guardar la traducción:', error);
+        }
+    };
     
     return (
         <>
@@ -49,17 +69,20 @@ function Translate({ isLoggedIn }) {
                     <p>Demostración visual de como gracias a Neskatila puedes transformar instantáneamente los textos de tu sitio Web o aplicación al euskera, o al español, con solo un clic en un botón de alternancia (toggle). Solo necesitas especificar el idioma de origen de tu Web o app y Neskatila se encargará del resto. Esta demostración te mostrará cómo Neskatila evitará la necesidad de introducir los textos en un segundo idioma en tu programación”</p>
                     <div className="translate">
                         <ButtonTranslate language={handleChangeLanguage} />
-                        {isLoggedIn && <ButtonFavorites />}
-                        {isLoggedIn && <ButtonView />}
+                        {isLoggedIn && <ButtonFavorites onClick={handleSaveTranslation} />}
+                        {isLoggedIn && <ButtonView username={username} />}
                         {isLoading ? (
                             <Spinner />
                         ) : (
-                            <textarea ref={textAreaRef} value={textAreaValue} onChange={handleTextAreaChange} placeholder={placeholderText}></textarea>
+                            <>
+                                <textarea ref={textAreaRef} value={textAreaValue} onChange={handleTextAreaChange} placeholder={placeholderText}></textarea>
+                            </>
                         )}
                     </div>
                 </section>
             </main>
             <Footer />
+            <ModalSave visible={showModal} onClose={() => setShowModal(false)} />
         </>
     );
 }
