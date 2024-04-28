@@ -1,20 +1,22 @@
-// LoginForm.js
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 
-function LoginForm({ setIsLoggedIn, onLoginSuccess }) { // Recibe setIsLoggedIn como prop
+function LoginForm({ setIsLoggedIn, onLoginSuccess }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate(); 
+    const navigate = useNavigate(); // Hook useNavigate para la navegación
 
+    // Función para controlar el inicio de sesión
     const handleLogin = async (event) => {
         event.preventDefault();
 
+        // Datos que se van a enviar en la solicitud de inicio de sesión
         const data = { username, password };
 
         try {
+            // Solicitud de inicio de sesión al servidor
             const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
@@ -23,10 +25,11 @@ function LoginForm({ setIsLoggedIn, onLoginSuccess }) { // Recibe setIsLoggedIn 
                 body: JSON.stringify(data),
             });
 
+            // Comprobar el estado de la solicitud
             if (response.ok) {
                 onLoginSuccess(username);
-                setIsLoggedIn(true); // Actualiza el estado de isLoggedIn
-                localStorage.setItem('isLoggedIn', true); // Almacena isLoggedIn en localStorage
+                setIsLoggedIn(true);
+                localStorage.setItem('username', username);
                 navigate('/traducir');
             } else {
                 const errorMessage = await response.text();
