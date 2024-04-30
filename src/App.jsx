@@ -7,7 +7,19 @@ import UseRules from './views/UseRules';
 import LoginForm from './views/Login';
 import RegisterForm from './views/Register';
 import SavedTranslations from './views/SavedTranslations';
+import Code from './views/Code.jsx';
+import TranslateLibrary from './views/TranslateLibrary.jsx';
+import Versions from './views/Versions.jsx';
 import './App.css';
+
+
+import { initNeskatila } from './lib/index.js';
+const API_KEY = "2123123"; //BUENO
+// const API_KEY = "1123123"; //MALO
+
+
+initNeskatila({ apiKey: API_KEY })
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(true); // Controla el modo oscuro de la app
@@ -47,7 +59,10 @@ function App() {
           <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} onLoginSuccess={handleLoginSuccess} />} />
           <Route path="/traducir" element={<Translate isLoggedIn={isLoggedIn} username={username} />} />
           <Route path="/registro" element={<RegisterForm />} />
+          <Route path="/code" element={<Code/>} />
+          <Route path="/componentes" element={<TranslateLibrary/>} />
           <Route path="/traducciones-guardadas" element={<SavedTranslations username={username} />} />
+          <Route path="/versiones" element={<Versions/>} />
         </Routes>
       </Router>
     </div>
