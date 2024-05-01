@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
 import axios from 'axios';
     
 function Code() {
@@ -35,14 +36,21 @@ function Code() {
   };
 
   return (
-    <div>
-      {data && data.map((item, index) => (
-        <div key={index} onClick={() => handleClick(item)}>
-          <h3>{item.path}</h3>
-          {expandedFiles[item.path] && <pre>{fileContent[item.path]}</pre>}
-        </div>
-      ))}
-    </div>
+    <>
+      <main className='container'>
+        {data && data.map((item, index) => (
+          <section className="content" key={index} onClick={() => handleClick(item)}>
+            <details>
+              <summary>{item.path}</summary>
+            </details>
+            {expandedFiles[item.path] && 
+              <pre className='code'>{fileContent[item.path]}</pre>
+            }
+          </section>
+        ))}
+      </main>
+      <Footer />
+    </>
   );
 };
 

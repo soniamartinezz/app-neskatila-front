@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import ToggleSwitch from './ToggleSwitch';
 
-function Navbar({ darkMode, setDarkMode, username, isLoggedIn }) {
+function Navbar({ darkMode, setDarkMode, username, isLoggedIn, setIsLoggedIn }) {
   const location = useLocation();
   const activePath = location.pathname;
 
@@ -10,7 +11,7 @@ function Navbar({ darkMode, setDarkMode, username, isLoggedIn }) {
     <>
       <div className="header"></div>
       <div className='options-user'>
-        <LoginButton username={username} isLoggedIn={isLoggedIn} />
+        <LoginButton username={username} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <ToggleSwitch setDarkMode={setDarkMode} darkMode={darkMode} />
       </div>
       <nav className='navbar'>
@@ -18,17 +19,17 @@ function Navbar({ darkMode, setDarkMode, username, isLoggedIn }) {
           <li className={`${activePath === '/' ? "active" : ""}`}>
             <Link to="/">Introducción</Link>
           </li>
-          <li className={`${activePath.includes('/code') ? "active" : ""}`}>
-            <Link to="/code">Code</Link>
+          <li className={`${activePath.includes('/codigo') ? "active" : ""}`}>
+            <Link to="/codigo">Código</Link>
           </li>
-          <li className={`${activePath.includes('/normas-uso') ? "active" : ""}`}>
-            <Link to="/normas-uso">Normas de uso</Link>
+          <li className={`${activePath.includes('/use-rules') ? "active" : ""}`}>
+            <Link to="/use-rules">Normas de uso</Link>
           </li>
           <li className={`${activePath.includes('/traducir') ? "active" : ""}`}>
-            <Link to="/traducir">Traducción</Link>
+            <Link to="/traducir">Traductor</Link>
           </li>
           <li className={`${activePath.includes('/componentes') ? "active" : ""}`}>
-            <Link to="/componentes">Componentes Dependencia</Link>
+            <Link to="/componentes">Uso en React</Link>
           </li>
           <li className={`${activePath.includes('/versiones') ? "active" : ""}`}>
             <Link to="/versiones">Versiones</Link>

@@ -9,42 +9,90 @@ function UseRules() {
 
     return(
         <>
-            <p>Es importante que te registres como usuario para poder hacer uso de la aplicación.</p>
-            <p>0. Pasos previos necesarios: Es necesario instalarse la dependencia Axios.</p>
-            <p>npm install axios</p>
+            <main className="container">
+                <section className="content use-rules">
+                    <h4><b>Pasos previos necesarios:</b></h4>
+                    <ul>
+                        <li>
+                            <p>Es importante que los usuarios se registren para poder hacer uso de la aplicación.</p>
+                        </li>
+                        <li>
+                            <p>Es necesario instalar la dependencia Axios.</p>
+                            <code>npm install axios</code>
+                        </li>
+                    </ul>
 
-            <p>0. Pasos previos opcionales: Para el uso de los componentes que se incluyan como ejemplos, y que el usuario podrá utilizar si se descarga neskatila, deberá descargarse React</p>
-            <p>npm i react</p>
+                    <h4><b>Pasos previos opcionales:</b> </h4>
+                    <ul>
+                        <li>
+                            <p>
+                                Para utilizar ejemplos de componentes que se incluyan y que los usuarios puedan descargar junto con Neskatila, deberán descargar React.
+                            </p>
+                            <code>npm i react</code>
+                        </li>
+                    </ul>
 
-            <p>1. Instalación: Primero, necesitas instalar la dependencia en tu proyecto. Esto se puede hacer utilizando el comando `npm install`</p>
-            <p>npm install neskatilla</p>
-
-            <p>2. Inicialización: Antes de poder usar `Neskatila`, necesitas inicializarla con tu clave API y servidor URL que se te propocionarán al registrate como usuario en nuestra Web.</p> 
-            <p>Para ello, necesitas importa `initNeskatila`.</p>
-            <p>import {initNeskatilaComoTexto} from neskatila;</p>
-
-            <p>Una vez hecho, invoca {initNeskatilaComoTexto} y pásale un objeto con la configuración de tu clave API y del servidor URL que se han proporcionado a tu usuario.</p>
-
-            <p>{NeskatilaInitComoTexto}</p>
-            <p>Si no proporcionas una URL de servidor, se usará 'http://localhost:3000' por defecto.</p>
-
-            <p>3. Importación: Una vez instalada la dependencia, puedes importarla en tu archivo</p>
-            <p>import { NeskatilaComoTexto} from 'neskatila;</p>
-
-            <p>4. Traducción: Ahora puedes usar el método `translate` para traducir textos. Este método es una función asíncrona que realiza una solicitud GET al servidor especificado en serverURL, por lo que necesitarás usar `await` o `.then()` para manejar la respuesta. Esta solicitud incluye el texto a traducir y los idiomas de origen y destino como parámetros de consulta. Incluyendo también la apiKey propocioanada al usuario para autenticarse. Por ejemplo:</p>
-    
-            <p>let palabraTraducida = await Neskatila.translate('eu', 'es', 'kaixo');</p>
-            <p>console.log(palabraTraducida);</p>
-    
-            <p>Este código traducirá la palabra 'kaixo' del euskera al castellano.</p>
-
-            <p>5. Uso del Hook: También puedes usar el hook `useNeskatila` para acceder al método `translate`.  Por ejemplo:</p>
-            <p>Este código hace lo mismo que el anterior, pero utilizando el hook `useNeskatila`.</p>
-            <p>const { TranslateComoTexto } = useNeskatila();</p>
-            <p>let palabraTraducida = await translate('eu', 'es', 'kaixo');</p>
-            <p>console.log(palabraTraducida);</p>  
-    
-            <p>Esto puede ser útil si estás trabajando con un componente de React. En la pestaña "Componentes Dependencia" iremos incorporando diferentes ejemplos de componentes donde podrás utilizar neskatila y podrás descargarte junto con la dependencia.</p>
+                    <h4><b>Pasos a seguir:</b> </h4>
+                    <ol>
+                        <li>
+                            <p>
+                                <b>Instalación:</b> Los usuarios necesitan instalar la dependencia en su proyecto.
+                            </p>
+                            <code>npm install neskatilla</code>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Inicialización:</b> Antes de poder usar Neskatila, los usuarios deben inicializarla con su clave API y la URL del servidor proporcionadas al registrarse en nuestra aplicación web.
+                            </p>
+                            <code>import { initNeskatilaComoTexto } from 'neskatila';</code>
+                            <p>Una vez hecho, deben invocar <code> { initNeskatilaComoTexto } </code> y pasar un objeto con la configuración de su clave API y URL del servidor proporcionadas.</p>
+                            <code>{ NeskatilaInitComoTexto }</code>
+                            <p>Si no se proporciona una URL de servidor, se usará 'http://localhost:3000' por defecto.</p>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Importación:</b> Los usuarios pueden importarla en su archivo.
+                            </p>
+                            <code>import { NeskatilaComoTexto } from 'neskatila';</code>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Traducción:</b> Ahora los usuarios pueden usar el método <code>{ TranslateComoTexto }</code> para traducir textos. Este método es una función asíncrona que realiza una solicitud GET al servidor especificado en la URL del servidor, por lo que necesitarán usar <code>await</code> o <code>.then()</code> para manejar la respuesta. Esta solicitud incluye el texto a traducir y los idiomas de origen y destino como parámetros de consulta.
+                            </p>
+                            <p>
+                                Por ejemplo:
+                            </p>
+                            <code>let palabraTraducida = await Neskatila.translate('eu', 'es', 'kaixo');</code>
+                            <br />
+                            <br />
+                            <code>console.log(palabraTraducida);</code>
+                            <p>
+                                Este código traducirá la palabra 'kaixo' del euskera al castellano.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Uso del Hook:</b> También pueden usar el hook  
+                                <code>useNeskatila</code>
+                                para acceder al método 
+                                <code>{ TranslateComoTexto }</code>. 
+                                Por ejemplo:
+                                Este código hace lo mismo que el anterior, pero utilizando el hook 'useNeskatila'.
+                            </p>
+                            <p>
+                                <code>const { TranslateComoTexto } = useNeskatila();</code>
+                                <br />
+                                <code>let palabraTraducida = await translate('eu', 'es', 'kaixo');</code>
+                                <br />
+                                <code>console.log(palabraTraducida);</code>
+                                <br />
+                                <br />
+                                Esto puede ser útil si están trabajando con un componente de React. En la pestaña "Componentes Dependencia" iremos incorporando diferentes ejemplos de componentes donde podrán utilizar Neskatila y descargarlos junto con la dependencia.
+                            </p>
+                        </li>
+                    </ol>  
+                </section>
+            </main>
         </>
     )
 }

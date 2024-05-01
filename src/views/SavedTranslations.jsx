@@ -30,17 +30,19 @@ function SavedTranslations({ username }) {
 
     return (
         <>
-            <div>
-                <h2>Traducciones guardadas</h2>
-                <button onClick={handleDeleteTranslations}>Eliminar todas las traducciones</button>
-                <ul>
-                    {translations.map((translation, index) => (
-                        <li key={index}>
-                            {translation.texto} {translation.language}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <main className='container'>
+                <section className='content'>
+                    <h2>Traducciones guardadas</h2>
+                    <button className="button-delete" onClick={handleDeleteTranslations}>Eliminar todas las traducciones</button>
+                    <ul className='list-save'>
+                        {translations.map((translation, index) => (
+                            <li key={index}>
+                                {translation.texto} {translation.language}
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            </main>
         </>
     );
 }

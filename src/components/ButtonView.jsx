@@ -4,7 +4,7 @@ function ButtonView({ username }) {
     return (
         <>
             <Link to="/traducciones-guardadas">
-                <button className="button-view" type="button">
+                <button className="button-save" type="button">
                     Traducciones guardadas
                 </button>
             </Link>

@@ -8,38 +8,37 @@
 	font-family: "Raleway", sans-serif;
 	font-style: normal;
 	overflow: auto;
+	cursor: default;
 }
 
+/* Mode light & dark */
 .root.dark,
-.root.dark .translate textarea {
-	background: #242424;
-	color: #fff;
-}
-
-.root.light,
-.root.light .translate textarea {
-	background: #fff;
-	color: #242424;
-}
-
-.root.light .translate textarea {
-	color: #000;
-}
-
-.root.light .formulario-login .username input, 
-.root.light .formulario-login .password input,
-.root.light .formulario-registro .username input, 
-.root.light .formulario-registro .password input {
-	background: #fff;
-	color: #000;
-}
-
+.root.dark .translate textarea,
 .root.dark .formulario-login .username input, 
 .root.dark .formulario-login .password input,
 .root.dark .formulario-registro .username input, 
 .root.dark .formulario-registro .password input {
     color: #fff;
 	background: #242424;
+}
+
+.root.light .formulario-login,
+.root.light .formulario-registro,
+.root.light .formulario-login .username input, 
+.root.light .formulario-login .password input, 
+.root.light .formulario-registro .username input,
+.root.light .formulario-registro .password input {
+	border: 1px solid #242424;
+}
+
+.root.light,
+.root.light .translate textarea,
+.root.light .formulario-login .username input, 
+.root.light .formulario-login .password input,
+.root.light .formulario-registro .username input, 
+.root.light .formulario-registro .password input {
+	background: #fff;
+	color: #242424;
 }
 
 .root.light .options-user button {
@@ -54,23 +53,27 @@
 	color: #fff;
 }
 
-.root.dark .button-view {
-	background: #242424;
-}
-
-.root.light .button-view {
+.root.light .button-language,
+.root.light .button-view,
+.root.light .button-save,
+.root.light .button-delete {
 	background: #fff;
 }
 
-.root.light .button-save {
-	background: #fff;
-}
-
-.root.dark .button-save {
+.root.dark .button-language,
+.root.dark .button-view,
+.root.dark .button-save,
+.root.dark .button-delete {
 	background: #242424;
 }
 
-#root::-webkit-scrollbar {
+.root.light .translate textarea,
+.root.dark code {
+	color: #242424;
+};
+
+#root::-webkit-scrollbar,
+.code::-webkit-scrollbar {
 	width: 8px;
 	background: #555555;
 	border-radius: 8px;
@@ -93,73 +96,97 @@
 }
 
 .navbar ul li {
-	cursor: pointer;
-	padding: 16px 32px;
-	display: flex;
-	flex: 1 1 0;
-	align-items: center;
-	justify-content: center;
+    height: 42px;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
 }
 
-.navbar ul li:nth-child(1) {
+.navbar ul li:nth-child(1),
+.navbar ul li:nth-child(6) {
 	border-top: 1px solid #cfcf16;
 	border-bottom: 1px solid #cfcf16;
 }
 
 .navbar ul li:nth-child(1),
-.navbar ul li:nth-child(1) a {
+.navbar ul li:nth-child(1) a,
+.navbar ul li:nth-child(6),
+.navbar ul li:nth-child(6) a {
 	color: #cfcf16;
 }
 
 .navbar ul li:nth-child(1):hover,
-.navbar ul li:nth-child(1).active {
+.navbar ul li:nth-child(1).active,
+.navbar ul li:nth-child(6):hover,
+.navbar ul li:nth-child(6).active {
 	background-color: #fafaa0;
-	color: #000;
+	color: #242424;
 }
 
 .navbar ul li:nth-child(1):hover a,
-.navbar ul li:nth-child(1).active a {
+.navbar ul li:nth-child(1).active a,
+.navbar ul li:nth-child(6):hover a,
+.navbar ul li:nth-child(6).active a {
 	background-color: #fafaa0;
 	color: #7a7a0b;
 }
 
-.navbar ul li:nth-child(2) {
+.navbar ul li:nth-child(2),
+.navbar ul li:nth-child(5) {
 	border-top: 1px solid #c25f5f;
 	border-bottom: 1px solid #c25f5f;
 }
 
 .navbar ul li:nth-child(2),
-.navbar ul li:nth-child(2) a {
+.navbar ul li:nth-child(2) a,
+.navbar ul li:nth-child(5),
+.navbar ul li:nth-child(5) a {
 	color: #c25f5f;
 }
 
 .navbar ul li:nth-child(2):hover,
-.navbar ul li:nth-child(2).active {
+.navbar ul li:nth-child(2).active,
+.navbar ul li:nth-child(5):hover,
+.navbar ul li:nth-child(5).active {
 	background-color: #ffc4c4f0;
 }
 
 .navbar ul li:nth-child(2):hover a,
-.navbar ul li:nth-child(2).active a {
+.navbar ul li:nth-child(2).active a,
+.navbar ul li:nth-child(5):hover a,
+.navbar ul li:nth-child(5).active a {
 	color: #6c0404;
 }
 
-.navbar ul li:nth-child(3) {
+.navbar ul li:nth-child(3),
+.navbar ul li:nth-child(4) {
 	border-top: 1px solid #930693;
 	border-bottom: 1px solid #930693;
 }
 
 .navbar ul li:nth-child(3),
-.navbar ul li:nth-child(3) a {
+.navbar ul li:nth-child(3) a,
+.navbar ul li:nth-child(4),
+.navbar ul li:nth-child(4) a {
 	color: #de2dd9;
 }
 
 .navbar ul li:nth-child(3):hover,
-.navbar ul li:nth-child(3).active {
+.navbar ul li:nth-child(3).active,
+.navbar ul li:nth-child(4):hover,
+.navbar ul li:nth-child(4).active {
 	background-color: #c799c7;
 }
 
 .navbar ul li:nth-child(3):hover a,
-.navbar ul li:nth-child(3).active a {
+.navbar ul li:nth-child(3).active a,
+.navbar ul li:nth-child(4):hover a,
+.navbar ul li:nth-child(4).active a {
 	color: #2a0431;
 }
 
@@ -171,11 +198,13 @@
 }
 
 .container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .container h1 {
@@ -185,6 +214,10 @@
 	padding-bottom: 8px;
 	font-size: 24px;
 	cursor: default;
+}
+
+.container h1 .version {
+	font-size: 16px;
 }
 
 .container p {
@@ -198,14 +231,81 @@
 	justify-content: flex-start;
 	align-items: center;
 	margin-top: 32px;
+	padding-bottom: 32px;
+	position: relative;
+}
+
+.content.use-rules,
+.content.use-react {
+	justify-content: center;
+	align-items: flex-start;
+} 
+
+.content.use-react textarea {
+	width: 100%;
+}
+
+.content.use-rules h4 {
+	margin-bottom: 0;
+}
+
+.content.use-rules ol {
+	margin-top: 0;
+}
+
+.content code {
+	background: #e3e3e3;
+	padding: 4px;
+}
+
+.content summary {
+    color: #2f6627;
+    cursor: pointer;
+}
+
+.code {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    padding: 16px;
+    background: #8a8a8a;
+    border-radius: 4px;
+	overflow: auto;
+}
+
+/* Tabla */
+.content.versions table {
+	width: 80%;
+}
+
+.content.versions table {
+	width: 80%;
+	margin-bottom: 32px;
+}
+
+.content.versions table thead {
+	background: #2f6627;
+	height: 42px;
+}
+
+.content.versions table tbody {
+	text-align: center;
+}
+
+.content.versions table tbody ul {
+	list-style: none;
 }
 
 .images {
-	height: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	margin-top: 32px;
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 32px;
 }
 
 .logo-thebrigde {
@@ -214,9 +314,17 @@
 
 .logo-neskatila {
 	width: 42%;
-	height: 96%;
 	border: 2px solid #fff;
 	border-radius: 8px;
+}
+
+.info {
+    width: inherit;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 32px;
 }
 
 .translate {
@@ -225,6 +333,17 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.list-save {
+    width: 62%;
+    margin-top: 32px;
+    padding: 16px 16px 16px 32px;
+    border: 1px solid #2f6627;
+}
+
+.content.use-react .translate {
+	align-items: flex-start
 }
 
 .translate textarea {
@@ -242,25 +361,30 @@
 /* Botón para traducir */
 .button-language {
 	border: none;
-	border-radius: 4px;
+	border-radius: 0;
 	margin: 16px 0;
-	width: 42%;
+	width: 280px;
 	font-size: 16px;
-	border-radius: 4px;
-	background-color: #2f6627;
+	border: 1px solid;
+	color: #2f6627;
 }
 
-.button-language:hover {
-	background-color: #38dc8a;
+.button-language:not(:disabled):hover {
+	transform: scale(1.05);
+}
+
+.button-language:not(:disabled):hover:active {
+	transform: scale(1.05) translateY(.125rem);
 }
 
 .button-language:active {
-	position:relative;
 	top:1px;
 }
 
+.button-language:hover,
 .button-language:focus {
 	outline: 0;
+	border-color: #2f6627;
 }
 
 /* Botón guardar traducciones */
@@ -272,7 +396,7 @@
     text-decoration: none;
     font-size: 16px;
     border-radius: 0px;
-	width: 32%;
+	width: 280px;
     height: 40px;
     position: relative;
     transition: 0.3s;
@@ -324,7 +448,7 @@
 	color: #2f6627;
 	font-size: 16px;
 	border-radius: 0px;
-	width: 100%;
+	width: 280px;
 	height: 40px;
 	border-top: 1px solid #2f6627;
 	border-right: 1px solid #2f6627;
@@ -335,6 +459,33 @@
 }
 
 .button-view:hover {
+	border-left-width: 1px;
+	border-color: #2f6627;
+}
+
+/* Botón eliminar traducciones guardadas */
+.button-delete {
+    border: 1px solid #2f6627;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    padding: 16px;
+    transition: all .14s ease-out;
+}
+
+.button-delete:hover {
+	box-shadow: 4px 4px 0 #2f6627;
+	transform: translate(-4px,-4px);
+}
+
+.button-delete:focus-visible{
+	outline-offset: 0;
+}
+
+.button-delete:hover {
 	border-left-width: 1px;
 	border-color: #2f6627;
 }
@@ -390,7 +541,7 @@
 }
 
 .switch .light {
-	color: #000;
+	color: #242424;
 }
 
 .switch .dark {
@@ -401,7 +552,22 @@
 	color: #fff;
 }
 
+/* Selector */
+.selector {
+    padding: 4px 8px;
+}
+
+select option {
+    padding: 8px;
+    background: white;
+	color: #242424;
+}
+
 /* Spinner */
+.spinner {
+	margin-top: 42px;
+}
+
 .spinner .main {
 	padding: 1.5em 0;
 }
@@ -468,7 +634,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	margin-top: 42px;
+	margin: 42px 0;
 }
 
 .formulario-login {
@@ -508,7 +674,6 @@
 }
 
 .formulario-login .buttons {
-	width: 42%;
     margin: 16px 0;
     display: flex;
     flex-direction: column;
@@ -554,7 +719,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	margin-top: 42px;
+	margin: 42px 0;
 }
 
 .formulario-registro {
@@ -594,7 +759,6 @@
 }
 
 .formulario-registro .buttons {
-	width: 42%;
     margin: 16px 0;
     display: flex;
     flex-direction: column;
@@ -640,7 +804,7 @@
 	}
 
 	.navbar ul li {
-		width: 100%;
+		width: -webkit-fill-available;
 	}
 
 	.images {
@@ -649,7 +813,7 @@
 
 	.logo-thebrigde,
 	.logo-neskatila {
-		width: 100%;
+		width: 54%;
 		height: 100%;
 	}
 
@@ -670,8 +834,12 @@
 	.formulario-registro .username, 
 	.formulario-registro .password,
 	.formulario-login .buttons,
-	.formulario-registro .buttons {
+	.formulario-registro .buttons,
+	ol {
 		width: 100%;
+	}
+	h2 {
+		text-align: center;
 	}
 }
 
