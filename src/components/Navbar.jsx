@@ -18,17 +18,17 @@ function Navbar({ darkMode, setDarkMode, username, isLoggedIn }) {
           <li className={`${activePath === '/' ? "active" : ""}`}>
             <Link to="/">Introducción</Link>
           </li>
-          <li className={`${activePath.includes('/code') ? "active" : ""}`}>
-            <Link to="/code">Code</Link>
+          <li className={`${activePath.includes('/codigo') ? "active" : ""}`}>
+            <Link to="/codigo">Código</Link>
           </li>
           <li className={`${activePath.includes('/normas-uso') ? "active" : ""}`}>
             <Link to="/normas-uso">Normas de uso</Link>
           </li>
           <li className={`${activePath.includes('/traducir') ? "active" : ""}`}>
-            <Link to="/traducir">Traducción</Link>
+            <Link to="/traducir">Traductor</Link>
           </li>
           <li className={`${activePath.includes('/componentes') ? "active" : ""}`}>
-            <Link to="/componentes">Componentes Dependencia</Link>
+            <Link to="/componentes">Uso con React</Link>
           </li>
           <li className={`${activePath.includes('/versiones') ? "active" : ""}`}>
             <Link to="/versiones">Versiones</Link>

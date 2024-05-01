@@ -59,7 +59,7 @@ function App() {
           <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} onLoginSuccess={handleLoginSuccess} />} />
           <Route path="/traducir" element={<Translate isLoggedIn={isLoggedIn} username={username} />} />
           <Route path="/registro" element={<RegisterForm />} />
-          <Route path="/code" element={<Code/>} />
+          <Route path="/codigo" element={<Code/>} />
           <Route path="/componentes" element={<TranslateLibrary/>} />
           <Route path="/traducciones-guardadas" element={<SavedTranslations username={username} />} />
           <Route path="/versiones" element={<Versions/>} />

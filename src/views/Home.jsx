@@ -7,25 +7,29 @@ function Home() {
         <>
             <main className="container">
                 <section className="content">
-                    <h1>Neskatila</h1> 
-                    <h2>v1.0.3</h2>
+                    <h1>neskatila &nbsp;<span className='version'>v1.0.3</span></h1> 
                     <div className="images">
                         <img className="logo-thebrigde" src={logoTheBridge} alt="logo-thebridge" />
                         <img className="logo-neskatila" src={logoNeskatila} alt="logo-neskatila" />
                     </div>
-                    <h2>¿Que es Neskatila?</h2>
-                    <p>Neskatila es una biblioteca de traducción que facilita la conversión sencilla y rápida de textos entre castellano y euskera en entornos web. Esta biblioteca utiliza un cliente HTTP para realizar llamadas a un servidor en el cual accede a una API exclusivo para traducciones en euskera.</p>
-                    <p>El objetivo de esta dependecia es proporcionar una solución eficiente y precisa para la comunicación bilingüe en línea entre ambos idiomas.</p>
-                    <p>El proyecto Neskatila se enmarca dentro de la iniciativa del Project Break 3, correspondiente al programa de Bootcamp Full Stack Web Developer ofrecido por TheBridge. Este proyecto se ha concebido con fines demostrativos, no persigue ningún objetivo comercial. Su principal finalidad es evidenciar la competencia y los conocimientos adquiridos en el desarrollo de aplicaciones web, específicamente en la programación de interfaces de usuario (front-end) y la lógica de servidor (back-end), utilizando JavaScript como lenguaje de programación base.</p>
-                    <h2>¿Que me ofrece la Web Neskatila?</h2>
-                    <p>En el sitio Web de Neskatila te ofrecemos lo necesario para comprender la dependencia. Desde lo necesario para su instalación, las normas para su funcionamiento y demostración en real de los resultados del uso de Neskatila.</p>
-                    <p>Pestaña "Cógido": Te mostramos el código en Javascript y anotaciones aclaratorias de neskatila.</p>
-                    <p>Pestaña "Normas de uso": Explicamos lo necesario para la instalación de neskatila y su funcionamiento.</p>
-                    <p>Pestaña "Traductor": Demostración visual para el usuario de como neskatila traduce los textos de su entorno Web o aplicación. De esta manera no sería necesario introducir manualmente los textos en euskera en tu programación.</p>
-                    <p>Pestaña "Componentes Dependencia": Ejemplos de React de como se puede hacer uso de la dependencia para crear diferentes componentes</p>
-                    <p>Pestaña "Versiones": Resumen de la versión actual e historicos de Neskatila</p>
+                   <div className="info">
+                    <h2>¿Qué es Neskatila?</h2>
+                    <p>Se trata de una librería de traducción diseñada para facilitar la rápida conversión de textos entre castellano y euskera en entornos web. Neskatila utiliza un cliente HTTP para enviar solicitudes a un servidor que cuenta con una API exclusiva para traducciones en euskera.</p>
+                    <p>El propósito de esta librería es ofrecer una solución eficiente y precisa para la comunicación bilingüe en línea entre ambos idiomas.</p>
+                    <p>Neskatila es un proyecto incluido en la iniciativa Project Final del programa de Bootcamp Full Stack Web Developer ofrecido por <a href="https://www.thebridge.tech/" target="_blank">The Bridge | Digital Talent Accelerator</a>. Su propósito es puramente demostrativo, sin ningún objetivo comercial. La meta principal de Neskatila es mostrar la competencia y los conocimientos adquiridos en el desarrollo de aplicaciones web, centrándose en la programación tanto del front-end como del back-end, utilizando JavaScript como lenguaje principal.</p>
+
+                    <h2>¿Qué ofrece la aplicación Neskatila?</h2>
+                    <ul>
+                        <li><b>Código</b>: Muestra el código en JavaScript junto con anotaciones aclaratorias proporcionadas por Neskatila.</li>
+                        <li><b>Normas de uso</b>: Explica los pasos necesarios para la instalación y el correcto funcionamiento de Neskatila.</li>
+                        <li><b>Traductor</b>: Presenta una demostración visual para el usuario sobre cómo Neskatila traduce los textos en su entorno web o aplicación, eliminando la necesidad de ingresar manualmente textos en euskera en la programación.</li>
+                        <li><b>Uso con React</b>: Exhibe ejemplos de React que ilustran cómo utilizar la dependencia para crear diferentes componentes.</li>
+                        <li><b>Versiones</b>: Ofrece un resumen de la versión actual y el historial de versiones anteriores de Neskatila.</li>
+                    </ul>
+                    
                     <h2>Mención y agradecimiento especial</h2>
-                    <p>Esta dependencia Neskatila ha sido posible gracias a la API Itzuli desarrollada por Vicomtech los cuales nos han dado permiso en su utilización para este proyecto</p>
+                    <p>Esta dependencia Neskatila ha sido posible gracias a la <a href="https://itzuli.vicomtech.org/es/api/" target="_blank">API Itzuli</a> desarrollada por <a href="https://www.vicomtech.org/es/" target="_blank">Vicomtech</a>, quienes nos han otorgado autorización para utilizarla en este proyecto.</p>
+                   </div>
                 </section>
             </main>
             <Footer />
