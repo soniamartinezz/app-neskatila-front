@@ -10,8 +10,11 @@ function UseRules() {
     return(
         <>
             <p>Es importante que te registres como usuario para poder hacer uso de la aplicación.</p>
-            <p>Es necesario instalarse la dependencia Axios.</p>
-            <p>Es necesario instalarse React para el uso de los componentes que se incluyan como ejemplos para el usuario.</p>
+            <p>0. Pasos previos necesarios: Es necesario instalarse la dependencia Axios.</p>
+            <p>npm install axios</p>
+
+            <p>0. Pasos previos opcionales: Para el uso de los componentes que se incluyan como ejemplos, y que el usuario podrá utilizar si se descarga neskatila, deberá descargarse React</p>
+            <p>npm i react</p>
 
             <p>1. Instalación: Primero, necesitas instalar la dependencia en tu proyecto. Esto se puede hacer utilizando el comando `npm install`</p>
             <p>npm install neskatilla</p>

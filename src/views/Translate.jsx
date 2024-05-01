@@ -4,7 +4,6 @@ import ButtonTranslate from "../components/ButtonTranslate";
 import ButtonFavorites from "../components/ButtonFavorites";
 import ButtonView from "../components/ButtonView";
 import Footer from "../components/Footer";
-import Spinner from "../components/Spinner";
 import ModalSave from "../components/ModalSave";
 import { useNeskatila } from "../lib/index.js";
 
@@ -12,7 +11,6 @@ function Translate({ isLoggedIn, username }) {
     const [textAreaValue, setTextAreaValue] = useState('');
     const [language, setLanguage] = useState('Español ➔ Euskera');
     const [placeholderText, setPlaceholderText] = useState('Escribe los textos de tu Web');
-    const [isLoading, setIsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const textAreaRef = useRef(null);
     const { translate } = useNeskatila();
@@ -74,7 +72,7 @@ function Translate({ isLoggedIn, username }) {
                     <p>Demostración visual que muestra la eficacia de Neskatila en la transformación instantánea de los textos de tu sitio web o aplicación al euskera, o al español. Esta transformación se logrará con un simple clic en un botón o toggle.
                         Lo único que se requiere de tu parte es especificar el idioma de origen de tu sitio web o aplicación. Una vez hecho esto, Neskatila se encargará del resto, facilitando así el proceso de traducción.
                         Esta demostración te permitirá apreciar cómo Neskatila elimina la necesidad de introducir manualmente los textos en un segundo idioma en tu programación. De esta manera, Neskatila te ayuda a ahorrar tiempo y esfuerzo, permitiéndote centrarte en otros aspectos importantes de tu proyecto</p>
-                    <p>Introduce en el siguiente Input un texto como si de la propia de una Web o aplicación se tratase.</p>
+                    <p>Introduce en el siguiente Input un texto como si de la propia de Web o aplicación se tratase.</p>
 
                     <p>Si te registras como usuario podrás guardar tus traducciones.</p>
 
@@ -82,9 +80,7 @@ function Translate({ isLoggedIn, username }) {
                         <ButtonTranslate OnButton={handleChangeLanguage} />
                         {isLoggedIn && <ButtonFavorites onClick={handleSaveTranslation} />}
                         {isLoggedIn && <ButtonView username={username} />}
-                        {isLoading ? (
-                            <Spinner />
-                        ) : (
+                        {(
                             <>
                                 <textarea ref={textAreaRef} value={textAreaValue} onChange={handleTextAreaChange} placeholder={placeholderText}></textarea>
                             </>
