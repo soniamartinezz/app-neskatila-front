@@ -19,8 +19,8 @@ function UseRules() {
             <p>1. Instalación: Primero, necesitas instalar la dependencia en tu proyecto. Esto se puede hacer utilizando el comando `npm install`</p>
             <p>npm install neskatilla</p>
 
-            <p>2. Inicialización: Antes de poder usar la clase `Neskatila`, necesitas inicializarla con tu clave API y servidor URL que se te propocionarán al registrate como usuario en nuestra Web.</p> 
-            <p>Para ello necesitas importa `initNeskatila`.</p>
+            <p>2. Inicialización: Antes de poder usar `Neskatila`, necesitas inicializarla con tu clave API y servidor URL que se te propocionarán al registrate como usuario en nuestra Web.</p> 
+            <p>Para ello, necesitas importa `initNeskatila`.</p>
             <p>import {initNeskatilaComoTexto} from neskatila;</p>
 
             <p>Una vez hecho, invoca {initNeskatilaComoTexto} y pásale un objeto con la configuración de tu clave API y del servidor URL que se han proporcionado a tu usuario.</p>
