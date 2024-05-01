@@ -1,51 +1,56 @@
+import Footer from "../components/Footer";
+
 function Versions() {
-
-
     return(
         <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Current Tags</th>
-                        <th>Version</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td>1.0.3</td>
-                        <td>Se incluye la función initNeskatila para autenticarse</td>
-                        <td>Se incluye la componente AutoTranslatedLabel (Necesario React)</td>
-                        <td>Se incluye la componente AutoTranslateTextArea (Necesario React)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <main className="container">
+                <section className="content versions">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Updates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.0.3</td>
+                                <td>
+                                    <ul>
+                                        <li>Se incluye la componente AutoTranslateTextArea (Necesario React)</li>
+                                        <li>Se incluye la componente AutoTranslatedLabel (Necesario React)</li>
+                                        <li>Se incluye la función initNeskatila para autenticarse</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Version History</th>
-                        <th>Version</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td>1.0.3</td>
-                        <td>Correcciones de código</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>1.0.1</td>
-                        <td>Correcciones de código</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>1.0.0</td>
-                        <td>Primera prueba de cómo funciona npm</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Version History</th>
+                                <th>Updates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.0.2</td>
+                                <td>Correcciones de código</td>
+                            </tr>
+                            <tr>
+                                <td>1.0.1</td>
+                                <td>Correcciones de código</td>
+                            </tr>
+                            <tr>
+                                <td>1.0.0</td>
+                                <td>Primera prueba de cómo funciona npm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+            <Footer />
         </>
     )
 }

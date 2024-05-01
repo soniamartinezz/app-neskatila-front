@@ -37,18 +37,18 @@ function Code() {
 
   return (
     <>
-      <div className='container'>
+      <main className='container'>
         {data && data.map((item, index) => (
-          <div className="content" key={index} onClick={() => handleClick(item)}>
+          <section className="content" key={index} onClick={() => handleClick(item)}>
             <details>
               <summary>{item.path}</summary>
             </details>
             {expandedFiles[item.path] && 
               <pre className='code'>{fileContent[item.path]}</pre>
             }
-          </div>
+          </section>
         ))}
-      </div>
+      </main>
       <Footer />
     </>
   );

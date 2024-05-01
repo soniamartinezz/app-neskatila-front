@@ -1,22 +1,35 @@
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function LoginButton({ username }) {
-  // Función para convertir la primera letra a mayúscula
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+function LoginButton({ username, isLoggedIn }) {
+  const navigate = useNavigate();
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(isLoggedIn);
+
+  // Manejar cambios en el estado de autenticación
+  useEffect(() => {
+    setIsUserLoggedIn(isLoggedIn);
+  }, [isLoggedIn]);
+
+  const handleLogoutClick = (event) => {
+    const selectedOption = event.target.value;
+    if (selectedOption === "logout") {
+      localStorage.removeItem('username');
+      localStorage.removeItem('isLoggedIn');
+      navigate('/');
+      console.log('salir');
+      setIsUserLoggedIn(false); // Actualizar el estado local al cerrar sesión
+    }
   };
-
-  // Verificar si hay un nombre de usuario y lo convierte a mayúscula
-  const formattedUsername = username ? capitalizeFirstLetter(username) : null;
 
   return (
     <>
-      {formattedUsername ? (
-        <span className="show-username">{formattedUsername}</span>
+      {isUserLoggedIn ? (
+        <select className="selector" defaultValue={username} onChange={handleLogoutClick}>
+          <option value={username}>{username}</option>
+          <option value="logout">Cerrar sesión</option>
+        </select>
       ) : (
-        <Link to="/login">
-          <button type="button">Iniciar sesión</button>
-        </Link>
+        <button type="button" onClick={() => navigate('/login')}>Iniciar sesión</button>
       )}
     </>
   );

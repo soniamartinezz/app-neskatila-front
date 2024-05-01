@@ -12,14 +12,10 @@ import TranslateLibrary from './views/TranslateLibrary.jsx';
 import Versions from './views/Versions.jsx';
 import './App.css';
 
-
 import { initNeskatila } from './lib/index.js';
-const API_KEY = "2123123"; //BUENO
-// const API_KEY = "1123123"; //MALO
-
+const API_KEY = "2123123"; // Válido
 
 initNeskatila({ apiKey: API_KEY })
-
 
 function App() {
   const [darkMode, setDarkMode] = useState(true); // Controla el modo oscuro de la app
@@ -52,10 +48,10 @@ function App() {
   return (
     <div id="root" className={`root ${darkMode ? 'dark' : 'light'}`}>
       <Router>
-        <Navbar handleClick={handleClick} darkMode={darkMode} setDarkMode={setDarkMode} username={username} />
+        <Navbar handleClick={handleClick} darkMode={darkMode} setDarkMode={setDarkMode} username={username} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/normas-uso" element={<UseRules />} />
+          <Route path="/use-rules" element={<UseRules />} />
           <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} onLoginSuccess={handleLoginSuccess} />} />
           <Route path="/traducir" element={<Translate isLoggedIn={isLoggedIn} username={username} />} />
           <Route path="/registro" element={<RegisterForm />} />

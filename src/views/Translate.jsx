@@ -1,31 +1,34 @@
+// Translate.jsx
 import React, { useState, useRef } from "react";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import ButtonTranslate from "../components/ButtonTranslate";
 import ButtonFavorites from "../components/ButtonFavorites";
 import ButtonView from "../components/ButtonView";
 import Footer from "../components/Footer";
-import ModalSave from "../components/ModalSave";
+import Spinner from "../components/Spinner.jsx";
 import { useNeskatila } from "../lib/index.js";
 
 function Translate({ isLoggedIn, username }) {
     const [textAreaValue, setTextAreaValue] = useState('');
-    const [language, setLanguage] = useState('Español ➔ Euskera');
-    const [placeholderText, setPlaceholderText] = useState('Escribe los textos de tu Web');
-    const [showModal, setShowModal] = useState(false);
+    const [language, setLanguage] = useState('Castellano ➔ Euskera');
+    const [placeholderText, setPlaceholderText] = useState('Por favor, introduce el texto de tu página web o aplicación en el siguiente campo...');
+    const [isLoading, setIsLoading] = useState(false);
     const textAreaRef = useRef(null);
     const { translate } = useNeskatila();
+    const navigate = useNavigate(); 
 
     const handleChangeLanguage = (newLanguage, textButtonValue) => {
         setLanguage(newLanguage);
-        setPlaceholderText(textButtonValue === 'Español ➔ Euskera' ? 'Idatzi zure Webgunearen testuak' : 'Escribe los textos de tu Web');
+        setPlaceholderText(textButtonValue === 'Castellano ➔ Euskera' ? 'Mesedez, sartu zure web orriko edo aplikazioko testua hurrengo eremuan...' : 'Por favor, introduce el texto de tu página web o aplicación en el siguiente campo...');
         if (textAreaValue) {
             handleTranslate(textButtonValue);
         }
     };
 
     const getLanguagesFromText = (langText) => {
-        const sourceLanguage = langText === 'Español ➔ Euskera' ? 'es' : 'eu';
-        const targetLanguage = langText === 'Español ➔ Euskera' ? 'eu' : 'es';
+        const sourceLanguage = langText === 'Castellano ➔ Euskera' ? 'es' : 'eu';
+        const targetLanguage = langText === 'Castellano ➔ Euskera' ? 'eu' : 'es';
         return { sourceLanguage, targetLanguage };
     }
 
@@ -33,63 +36,56 @@ function Translate({ isLoggedIn, username }) {
         const { sourceLanguage, targetLanguage } = getLanguagesFromText(language);
 
         try {
+            setIsLoading(true);
             const texto = await translate(sourceLanguage, targetLanguage, textAreaRef.current.value);
-            // const response = await axios.get(`http://localhost:3000/?word=${textAreaRef.current.value}&source=${sourceLanguage}&target=${targetLanguage}`);
             setTextAreaValue(texto);
-            console.log(texto);
+            setIsLoading(false);
         } catch (error) {
+            setIsLoading(false);
             console.error(error);
         }
     };
 
-    const handleTextAreaChange = (event) => {
-        setTextAreaValue(event.target.value);
-    };
     const handleSaveTranslation = async () => {
+        if (textAreaValue.trim() === '') {
+            return;
+        }
+
         try {
-            const sourceLanguage = language === 'Español ➔ Euskera' ? 'es' : 'eu';
+            const sourceLanguage = language === 'Castellano ➔ Euskera' ? 'es' : 'eu';
             const translationData = {
                 userName: username,
                 texto: textAreaValue,
                 sourceLanguage: sourceLanguage 
-            };
-            console.log('Datos de traducción a enviar al backend:', translationData);
-            
+            };            
             await axios.post('http://localhost:3000/traducir', translationData);
-            console.log('Traducción guardada correctamente.');
-            setShowModal(true); // Mostrar la modal cuando la traducción se guarda correctamente
         } catch (error) {
             console.error('Error al guardar la traducción:', error);
         }
     };
     
-
     return (
         <>
             <main className="container">
                 <section className="content">
                     <h1>neskatila</h1>
-                    <p>Demostración visual que muestra la eficacia de Neskatila en la transformación instantánea de los textos de tu sitio web o aplicación al euskera, o al español. Esta transformación se logrará con un simple clic en un botón o toggle.
-                        Lo único que se requiere de tu parte es especificar el idioma de origen de tu sitio web o aplicación. Una vez hecho esto, Neskatila se encargará del resto, facilitando así el proceso de traducción.
-                        Esta demostración te permitirá apreciar cómo Neskatila elimina la necesidad de introducir manualmente los textos en un segundo idioma en tu programación. De esta manera, Neskatila te ayuda a ahorrar tiempo y esfuerzo, permitiéndote centrarte en otros aspectos importantes de tu proyecto</p>
-                    <p>Introduce en el siguiente Input un texto como si de la propia de Web o aplicación se tratase.</p>
+                    <p>La demostración visual de Neskatila exhibe la eficacia de esta herramienta en la transformación instantánea de los textos en tu sitio web o aplicación al euskera o al castellano. Esta transformación se realiza con un simple clic en un botón o toggle. Todo lo que se requiere por parte del usuario es especificar el idioma de origen de su sitio web o aplicación. Una vez hecho esto, Neskatila se encarga del resto, simplificando así el proceso de traducción. Esta demostración permite apreciar cómo Neskatila elimina la necesidad de introducir manualmente los textos en un segundo idioma en la programación. De esta manera, Neskatila ayuda a ahorrar tiempo y esfuerzo, permitiendo a los usuarios centrarse en otros aspectos importantes de sus proyectos.</p>
 
-                    <p>Si te registras como usuario podrás guardar tus traducciones.</p>
+                    <p>Además, al registrarse como usuario, se ofrece la posibilidad de guardar las traducciones realizadas. Esto brinda una experiencia más personalizada y permite un acceso rápido a las traducciones previas.</p>
 
                     <div className="translate">
                         <ButtonTranslate OnButton={handleChangeLanguage} />
                         {isLoggedIn && <ButtonFavorites onClick={handleSaveTranslation} />}
                         {isLoggedIn && <ButtonView username={username} />}
-                        {(
-                            <>
-                                <textarea ref={textAreaRef} value={textAreaValue} onChange={handleTextAreaChange} placeholder={placeholderText}></textarea>
-                            </>
+                        {isLoading ? (
+                            <Spinner />
+                        ) : (
+                            <textarea ref={textAreaRef} value={textAreaValue} onChange={(event) => setTextAreaValue(event.target.value)} placeholder={placeholderText}></textarea>
                         )}
                     </div>
                 </section>
             </main>
             <Footer />
-            <ModalSave visible={showModal} onClose={() => setShowModal(false)} />
         </>
     );
 }

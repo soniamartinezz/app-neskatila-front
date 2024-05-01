@@ -1,6 +1,6 @@
 import Footer from '../components/Footer';
 import logoTheBridge from '../assets/logo-thebrigde.png';
-import logoNeskatila from '../assets/logo3.png';
+import logoNeskatila from '../assets/logo.png';
 
 function Home() {
     return(

@@ -28,8 +28,9 @@ function LoginForm({ setIsLoggedIn, onLoginSuccess }) {
             // Comprobar el estado de la solicitud
             if (response.ok) {
                 onLoginSuccess(username);
-                setIsLoggedIn(true);
+                setIsLoggedIn(true); 
                 localStorage.setItem('username', username);
+                localStorage.setItem('isLoggedIn', true); 
                 navigate('/traducir');
             } else {
                 const errorMessage = await response.text();

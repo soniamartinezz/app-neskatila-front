@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 function ButtonTranslate({ OnButton }) {
-    const [textButton, setTextButton] = useState('Español ➔ Euskera');
+    const [textButton, setTextButton] = useState('Castellano ➔ Euskera');
 
     const handleChange = (event) => {
-        const newValue = event.target.value === 'Español ➔ Euskera' ? 'Euskera ➔ Español' : 'Español ➔ Euskera';
+        const newValue = event.target.value === 'Castellano ➔ Euskera' ? 'Euskera ➔ Castellano' : 'Castellano ➔ Euskera';
         setTextButton(newValue);
         OnButton(newValue, textButton);
     }
@@ -12,7 +12,7 @@ function ButtonTranslate({ OnButton }) {
     return(
         <>
             <button 
-                className={`button-language ${textButton === 'Español ➔ Euskera' ? "euskera" : "spanish"}`}
+                className="button-language"
                 type="button"
                 value={textButton}
                 onClick={handleChange}

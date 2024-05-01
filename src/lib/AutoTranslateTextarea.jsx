@@ -31,7 +31,7 @@ export const AutoTranslateTextArea = (props) => {
     };
 
     return (
-        <textarea value={textAreaValue} onChange={handleChange} onBlur={handleTranslate} placeholder="Escribe los textos de tu Web"></textarea>
+        <textarea value={textAreaValue} onChange={handleChange} onBlur={handleTranslate} placeholder="Por favor, introduce el texto de tu página web o aplicación en el siguiente campo..."></textarea>
     )
 }
 
