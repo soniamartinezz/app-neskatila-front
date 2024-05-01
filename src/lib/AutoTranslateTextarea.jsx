@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { useNeskatila } from "./useNeskatila";
 import PropTypes from "prop-types";
 
+// Este un componente utiliza el Hook useNeskatila para traducir automaticamente el contenido que haya en un input.
 
 export const AutoTranslateTextArea = (props) => {
     const { sourceLanguage, targetLanguage } = props;
     const { translate } = useNeskatila();
     const [textAreaValue, setTextAreaValue] = useState('');
+
+    // "translate" proporcionado por el Hook useNeskatila para traducir el texto del idioma de origen al idioma de destino.
 
     const handleTranslate = async (event) => {
         try {
@@ -18,7 +21,12 @@ export const AutoTranslateTextArea = (props) => {
         }
     };
 
+    // El valor del input se actualiza con "handleChange". Este actualiza el estado "textAreaValue" del texto introducido.
+
     const handleChange = async (event) => {
+
+        // El resultado de la traduccion se guarda en el estado textAreaValue, que se muestra en el Input.
+
         setTextAreaValue(event.target.value);
     };
 
