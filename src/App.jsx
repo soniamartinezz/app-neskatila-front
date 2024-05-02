@@ -43,6 +43,7 @@ function App() {
     setUsername(username);
     setIsLoggedIn(true);
     localStorage.setItem('username', username);
+    localStorage.setItem('isLoggedIn', true);
   };
 
   return (
