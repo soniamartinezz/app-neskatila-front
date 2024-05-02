@@ -1,3 +1,4 @@
+/* Estilos generales */
 #root {
 	max-width: 100%;
 	width: 100%;
@@ -11,7 +12,7 @@
 	cursor: default;
 }
 
-/* Mode light & dark */
+/* Modo light & dark */
 .root.dark,
 .root.dark .translate textarea,
 .root.dark .formulario-login .username input, 
@@ -60,17 +61,18 @@
 	background: #fff;
 }
 
+.root.light .button-delete,
+.root.light .translate textarea,
+.root.dark code {
+	color: #242424;
+}
+
 .root.dark .button-language,
 .root.dark .button-view,
 .root.dark .button-save,
 .root.dark .button-delete {
 	background: #242424;
 }
-
-.root.light .translate textarea,
-.root.dark code {
-	color: #242424;
-};
 
 #root::-webkit-scrollbar,
 .code::-webkit-scrollbar {
@@ -251,6 +253,7 @@
 
 .content.use-rules ol {
 	margin-top: 0;
+	width: inherit;
 }
 
 .content code {
