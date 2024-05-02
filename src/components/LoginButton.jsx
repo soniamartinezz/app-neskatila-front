@@ -1,44 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-function LoginButton({ username, isLoggedIn }) {
+function LoginButton({ username, isLogged }) {
   const navigate = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(isLoggedIn);
+  const location = useLocation();
+  const [loggedIn, setLogged] = useState(isLogged);
 
-  // Manejar cambios en la prop 'isLoggedIn'
+  // Cambios en la prop 'isLogged'
   useEffect(() => {
-    setLoggedIn(isLoggedIn);
-  }, [isLoggedIn]);
+    setLogged(isLogged);
+  }, [isLogged]);
+
+  const formatUsername = (name) => {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 
   const handleLogout = () => {
     localStorage.removeItem('username');
-    localStorage.removeItem('isLoggedIn');
-    setLoggedIn(false);
+    localStorage.removeItem('isLogged');
+    setLogged(false);
     navigate('/');
   };
 
   const handleLogin = () => {
-    // Actualizar el estado loggedIn
-    setLoggedIn(true);
+    setLogged(true); // Actualizar loggedIn
     navigate('/login');
   };
 
+  // Comprobar si estamos en la página de inicio de sesión o de registro
+  const isLoginPage = location.pathname === '/login' || location.pathname === '/register';
+
   return (
     <>
-      {loggedIn && username ? (
-        <>
+      {/* Renderizar el select solo si estamos logueados y no estamos en la página de inicio de sesión o registro */}
+      {loggedIn && !isLoginPage && (
         <select className="selector" value={username} onChange={handleLogout}>
-          <option value={username}>{username}</option>
+          <option value={username}>{formatUsername(username)}</option>
           <option value="logout">Cerrar sesión</option>
         </select>
-        <div>
-          <p>Tu código: 212312321</p>
-          <p>Tu serverURL:</p>
-        </div>
-        </>
-      ) : (
-        <button type="button" onClick={handleLogin}>Iniciar sesión</button>
       )}
+
+      {/* Renderizar el botón de inicio de sesión solo si no estamos logueados o estamos en la página de inicio de sesión o registro */}
+      {!loggedIn || isLoginPage ? (
+        <button type="button" onClick={handleLogin}>Iniciar sesión</button>
+      ) : null}
     </>
   );
 }
