@@ -15,7 +15,7 @@ import './App.css';
 import { initNeskatila } from './lib/index.js';
 const API_KEY = "212312321"; // Válido
 
-initNeskatila({ apiKey: API_KEY })
+initNeskatila({ apiKey: API_KEY, serverURL: 'https://app-neskatila-back-production.up.railway.app' })
 
 function App() {
   const [darkMode, setDarkMode] = useState(true); // Controla el modo oscuro de la app

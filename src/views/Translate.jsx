@@ -58,7 +58,7 @@ function Translate({ isLoggedIn, username }) {
                 texto: textAreaValue,
                 sourceLanguage: sourceLanguage 
             };            
-            await axios.post('http://localhost:3000/traducir', translationData);
+            await axios.post('https://app-neskatila-back-production.up.railway.app/traducir', translationData);
         } catch (error) {
             console.error('Error al guardar la traducción:', error);
         }

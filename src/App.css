@@ -521,6 +521,11 @@
 	width: 100%;
 }
 
+.login-options {
+    display: flex;
+    flex-direction: column;
+}
+
 .options-user {
     display: flex;
     align-items: center;

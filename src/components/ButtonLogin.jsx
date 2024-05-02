@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function LoginButton({ username, isLogged }) {
+function ButtonLogin({ username, isLogged }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [loggedIn, setLogged] = useState(isLogged);
@@ -34,10 +34,16 @@ function LoginButton({ username, isLogged }) {
     <>
       {/* Renderizar el select solo si estamos logueados y no estamos en la página de inicio de sesión o registro */}
       {loggedIn && !isLoginPage && (
-        <select className="selector" value={username} onChange={handleLogout}>
-          <option value={username}>{formatUsername(username)}</option>
-          <option value="logout">Cerrar sesión</option>
-        </select>
+        <div className='login-options'>
+          <select className="selector" value={username} onChange={handleLogout}>
+            <option value={username}>{formatUsername(username)}</option>
+            <option value="logout">Cerrar sesión</option>
+          </select>
+          <div>
+            <p>Tu código: 212312321</p>
+            <p>Tu serverURL: https://app-neskatila-back-production.up.railway.app</p>
+          </div>
+        </div>
       )}
 
       {/* Renderizar el botón de inicio de sesión solo si no estamos logueados o estamos en la página de inicio de sesión o registro */}
@@ -48,4 +54,4 @@ function LoginButton({ username, isLogged }) {
   );
 }
 
-export default LoginButton;
+export default ButtonLogin;

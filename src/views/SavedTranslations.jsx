@@ -8,7 +8,7 @@ function SavedTranslations({ username }) {
     useEffect(() => {
         const fetchTranslations = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/traducciones-guardadas/${username}`);
+                const response = await axios.get(`https://app-neskatila-back-production.up.railway.app/traducciones-guardadas/${username}`);
                 setTranslations(response.data);
             } catch (error) {
                 console.error('Error al obtener las traducciones guardadas:', error);
@@ -21,7 +21,7 @@ function SavedTranslations({ username }) {
     // Elimina todas las traducciones guardadas de un usuario 
     const handleDeleteTranslations = async () => {
         try {
-            await axios.delete(`http://localhost:3000/traducciones-guardadas/${username}`);
+            await axios.delete(`https://app-neskatila-back-production.up.railway.app/traducciones-guardadas/${username}`);
             setTranslations([]);
         } catch (error) {
             console.error('Error al eliminar las traducciones guardadas:', error);

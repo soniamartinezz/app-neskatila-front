@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import LoginButton from './LoginButton';
+import ButtonLogin from './ButtonLogin';
 import ToggleSwitch from './ToggleSwitch';
 
 function Navbar({ darkMode, setDarkMode, username, isLoggedIn, setIsLoggedIn }) {
@@ -11,7 +11,7 @@ function Navbar({ darkMode, setDarkMode, username, isLoggedIn, setIsLoggedIn }) 
     <>
       <div className="header"></div>
       <div className='options-user'>
-        <LoginButton username={username} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <ButtonLogin username={username} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <ToggleSwitch setDarkMode={setDarkMode} darkMode={darkMode} />
       </div>
       <nav className='navbar'>

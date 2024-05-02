@@ -16,7 +16,7 @@ function RegisterForm() {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/registro', {
+      const response = await fetch('https://app-neskatila-back-production.up.railway.app/registro', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
