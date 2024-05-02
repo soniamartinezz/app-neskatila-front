@@ -13,7 +13,7 @@ import Versions from './views/Versions.jsx';
 import './App.css';
 
 import { initNeskatila } from './lib/index.js';
-const API_KEY = "2123123"; // Válido
+const API_KEY = "212312321"; // Válido
 
 initNeskatila({ apiKey: API_KEY })
 

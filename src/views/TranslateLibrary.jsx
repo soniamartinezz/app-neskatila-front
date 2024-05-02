@@ -45,11 +45,11 @@ function TranslateLibrary() {
             <main className="container">
                 <section className="content use-react">
                     <p>Se presentan ejemplos de diversos componentes elaborados en React utilizando Neskatila. Estos componentes están disponibles al descargar la dependencia Neskatila.</p>
-                    <p>En la pestaña "Código", los usuarios pueden consultar los códigos de los componentes mostrados, junto con notas aclaratorias sobre su funcionamiento."</p>
+                    <p>En la pestaña "Código" los usuarios pueden consultar los códigos de los componentes mostrados, junto con notas aclaratorias sobre su funcionamiento.</p>
                     
                     <h2 className='subtitle'>AutoTranslatedLabel</h2>
                     <ButtonTranslate OnButton={handleChangeLanguage} />
-                    <p>Para poder utilizarlo, se importa el archivo al fichero de la siguiente manera:</p>
+                    <p>Para poder utilizarlo se importa el componente al fichero de la siguiente manera:</p>
                     <code>import {AutoTranslatedLabelComoTexto} from "neskatila"</code>
                     <p>Luego de importarlo, se completa el componente:</p>
                     <code>AutoTranslatedLabel value="" sourceLanguage="" targetLanguage="" css=""</code>
@@ -61,15 +61,11 @@ function TranslateLibrary() {
                     )}
                     
                     <h2 className='subtitle'>AutoTranslateTextArea</h2>
-                    <p>Para poder utilizarlo, se importa al archivo de la siguiente manera:</p>
+                    <p>Para poder utilizarlo se importa el componente de la siguiente manera:</p>
                     <code>import {AutoTranslateTextAreaComoTexto} from "neskatila"</code>
                     <p>Luego, el usuario escribe texto en el campo de entrada. Cuando finaliza la interacción con él, es decir, cuando pierde el foco (evento onBlur), el texto se traducirá automáticamente.</p>
                     <div className="translate">
-                        {isLoading ? (
-                                <Spinner />
-                            ) : (
-                                <AutoTranslateTextArea sourceLanguage={sourceLanguage} targetLanguage={targetLanguage} />
-                        )}
+                        <AutoTranslateTextArea sourceLanguage={sourceLanguage} targetLanguage={targetLanguage} />
                     </div>
                 </section>
             </main >

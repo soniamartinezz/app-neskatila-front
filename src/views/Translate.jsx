@@ -68,10 +68,11 @@ function Translate({ isLoggedIn, username }) {
         <>
             <main className="container">
                 <section className="content">
-                    <h1>neskatila</h1>
-                    <p>La demostración visual de Neskatila exhibe la eficacia de esta herramienta en la transformación instantánea de los textos en tu sitio web o aplicación al euskera o al castellano. Esta transformación se realiza con un simple clic en un botón o toggle. Todo lo que se requiere por parte del usuario es especificar el idioma de origen de su sitio web o aplicación. Una vez hecho esto, Neskatila se encarga del resto, simplificando así el proceso de traducción. Esta demostración permite apreciar cómo Neskatila elimina la necesidad de introducir manualmente los textos en un segundo idioma en la programación. De esta manera, Neskatila ayuda a ahorrar tiempo y esfuerzo, permitiendo a los usuarios centrarse en otros aspectos importantes de sus proyectos.</p>
+                    <h1>Neskatila</h1>
+                    <p>En esta demostración visual de Neskatila se exhibe la eficacia de esta herramienta en la transformación instantánea de los textos en tu sitio web o aplicación al euskera o al castellano. Esta transformación se realiza con un simple clic en un botón o toggle. Todo lo que se requiere por parte del usuario es especificar el idioma de origen de su sitio web o aplicación. Una vez hecho esto, Neskatila se encarga del resto, simplificando así el proceso de traducción.</p>
+                    <p>Esta demostración permite apreciar cómo Neskatila elimina la necesidad de introducir manualmente los textos en un segundo idioma en la programación. De esta manera, Neskatila ayuda a ahorrar tiempo y esfuerzo, permitiendo a los usuarios centrarse en otros aspectos importantes de sus proyectos.</p>
 
-                    <p>Además, al registrarse como usuario, se ofrece la posibilidad de guardar las traducciones realizadas. Esto brinda una experiencia más personalizada y permite un acceso rápido a las traducciones previas.</p>
+                    <p>Además, al registrarse como usuario, se ofrece la posibilidad de guardar las traducciones realizadas. Esto brinda una experiencia más personalizada y permite un acceso rápido a las traducciones realizadas previamente.</p>
 
                     <div className="translate">
                         <ButtonTranslate OnButton={handleChangeLanguage} />

@@ -25,11 +25,17 @@ function LoginButton({ username, isLoggedIn }) {
 
   return (
     <>
-      {loggedIn ? (
+      {loggedIn && username ? (
+        <>
         <select className="selector" value={username} onChange={handleLogout}>
           <option value={username}>{username}</option>
           <option value="logout">Cerrar sesión</option>
         </select>
+        <div>
+          <p>Tu código: 212312321</p>
+          <p>Tu serverURL:</p>
+        </div>
+        </>
       ) : (
         <button type="button" onClick={handleLogin}>Iniciar sesión</button>
       )}

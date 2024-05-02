@@ -26,7 +26,7 @@ function UseRules() {
                     <ul>
                         <li>
                             <p>
-                                Para utilizar ejemplos de componentes que se incluyan y que los usuarios puedan descargar junto con Neskatila, deberán descargar React.
+                                Para poder hacer uso de los ejemplos de componentes en React que se incluyan en la dependencia, los usuarios deberán instalarse React.
                             </p>
                             <code>npm i react</code>
                         </li>
@@ -42,12 +42,13 @@ function UseRules() {
                         </li>
                         <li>
                             <p>
-                                <b>Inicialización:</b> Antes de poder usar Neskatila, los usuarios deben inicializarla con su clave API y la URL del servidor proporcionadas al registrarse en nuestra aplicación web.
+                                <b>Inicialización:</b> Para poder utilizar Neskatila, es necesario que los usuarios la inicialicen utilizando la clave API y la serverURL que se les proporciona al estar registrados en nuestra aplicación web.
                             </p>
+                            <p>Para ello, deberán importarse <code>{ initNeskatilaComoTexto }</code> a su fichero:</p>
                             <code>import { initNeskatilaComoTexto } from 'neskatila';</code>
-                            <p>Una vez hecho, deben invocar <code> { initNeskatilaComoTexto } </code> y pasar un objeto con la configuración de su clave API y URL del servidor proporcionadas.</p>
+                            <p>Una vez hecho, deben invocar <code>{ initNeskatilaComoTexto }</code> y pasar un objeto con la configuración de su clave API y serverURL proporcionadas.</p>
                             <code>{ NeskatilaInitComoTexto }</code>
-                            <p>Si no se proporciona una URL de servidor, se usará 'http://localhost:3000' por defecto.</p>
+                            <p>Si no se proporciona una serverURL, se usará 'http://localhost:3000' por defecto.</p>
                         </li>
                         <li>
                             <p>
@@ -57,7 +58,7 @@ function UseRules() {
                         </li>
                         <li>
                             <p>
-                                <b>Traducción:</b> Ahora los usuarios pueden usar el método <code>{ TranslateComoTexto }</code> para traducir textos. Este método es una función asíncrona que realiza una solicitud GET al servidor especificado en la URL del servidor, por lo que necesitarán usar <code>await</code> o <code>.then()</code> para manejar la respuesta. Esta solicitud incluye el texto a traducir y los idiomas de origen y destino como parámetros de consulta.
+                                <b>Traducción:</b> Ahora los usuarios pueden usar el método <code>translate</code> para traducir textos. Este método es una función asíncrona que realiza una solicitud GET al servidor especificado en la URL del servidor, por lo que necesitarán usar <code>await</code> o <code>.then()</code> para manejar la respuesta. Esta solicitud incluye como parámetros de consulta los idiomas de origen y destino y el texto a traducir.
                             </p>
                             <p>
                                 Por ejemplo:
@@ -76,8 +77,8 @@ function UseRules() {
                                 <code>useNeskatila</code>
                                 para acceder al método 
                                 <code>{ TranslateComoTexto }</code>. 
-                                Por ejemplo:
-                                Este código hace lo mismo que el anterior, pero utilizando el hook 'useNeskatila'.
+                                <p>Por ejemplo: Este código hace lo mismo que el anterior, pero utilizando el hook 'useNeskatila'.</p>
+                                
                             </p>
                             <p>
                                 <code>const { TranslateComoTexto } = useNeskatila();</code>
@@ -87,7 +88,7 @@ function UseRules() {
                                 <code>console.log(palabraTraducida);</code>
                                 <br />
                                 <br />
-                                Esto puede ser útil si están trabajando con un componente de React. En la pestaña "Componentes Dependencia" iremos incorporando diferentes ejemplos de componentes donde podrán utilizar Neskatila y descargarlos junto con la dependencia.
+                                Esto puede ser útil si están trabajando con un componente de React. En la pestaña "Uso en React" iremos incorporando diferentes ejemplos de componentes donde se utiliza Neskatila. También serán descargados junto con la dependencia y el usuario podrá hacer uso de ellos.
                             </p>
                         </li>
                     </ol>  
