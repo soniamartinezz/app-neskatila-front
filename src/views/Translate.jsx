@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import Spinner from "../components/Spinner.jsx";
 import { useNeskatila } from "../lib/index.js";
 
-function Translate({ isLoggedIn, username }) {
+function Translate({ isLogged, username }) {
     const [textAreaValue, setTextAreaValue] = useState('');
     const [language, setLanguage] = useState('Castellano ➔ Euskera');
     const [placeholderText, setPlaceholderText] = useState('Por favor, introduce el texto de tu página web o aplicación en el siguiente campo...');
@@ -76,8 +76,8 @@ function Translate({ isLoggedIn, username }) {
 
                     <div className="translate">
                         <ButtonTranslate OnButton={handleChangeLanguage} />
-                        {isLoggedIn && <ButtonFavorites onClick={handleSaveTranslation} />}
-                        {isLoggedIn && <ButtonView username={username} />}
+                        {isLogged && <ButtonFavorites onClick={handleSaveTranslation} />}
+                        {isLogged && <ButtonView username={username} />}
                         {isLoading ? (
                             <Spinner />
                         ) : (

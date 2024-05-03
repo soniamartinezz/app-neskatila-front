@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 
-function LoginForm({ setIsLoggedIn, onLoginSuccess }) {
+function LoginForm({ setisLogged, onLoginSuccess }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -31,9 +31,9 @@ function LoginForm({ setIsLoggedIn, onLoginSuccess }) {
             // Comprobar el estado de la solicitud
             if (response.ok) {
                 onLoginSuccess(username);
-                setIsLoggedIn(true); 
+                setisLogged(true); 
                 localStorage.setItem('username', username);
-                localStorage.setItem('isLoggedIn', true); 
+                localStorage.setItem('isLogged', true); 
                 navigate('/traducir');
             } else {
                 const errorMessage = await response.text();

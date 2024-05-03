@@ -19,7 +19,7 @@ initNeskatila({ apiKey: API_KEY, serverURL: 'https://app-neskatila-back-producti
 
 function App() {
   const [darkMode, setDarkMode] = useState(true); // Controla el modo oscuro de la app
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Comprobar si se ha iniciado sesión
+  const [isLogged, setisLogged] = useState(false); // Comprobar si se ha iniciado sesión
   const [username, setUsername] = useState(""); // Guardar el username del usuario
 
   // Función para cambiar el modo oscuro / modo claro
@@ -31,30 +31,30 @@ function App() {
     // Comprobar si se ha guardado un 'username' en localStorage
     const storedUsername = localStorage.getItem('username');
 
-    // Si hay un username guardado, cambiar el estado de 'username' y de 'isLoggedIn'
+    // Si hay un username guardado, cambiar el estado de 'username' y de 'isLogged'
     if (storedUsername) {
       setUsername(storedUsername);
-      setIsLoggedIn(true);
+      setisLogged(true);
     }
   }, []);
 
   // Función para controlar el inicio de sesión
   const handleLoginSuccess = (username) => {
     setUsername(username);
-    setIsLoggedIn(true);
+    setisLogged(true);
     localStorage.setItem('username', username);
-    localStorage.setItem('isLoggedIn', true);
+    localStorage.setItem('isLogged', true);
   };
 
   return (
     <div id="root" className={`root ${darkMode ? 'dark' : 'light'}`}>
       <Router>
-        <Navbar handleClick={handleClick} darkMode={darkMode} setDarkMode={setDarkMode} username={username} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Navbar handleClick={handleClick} darkMode={darkMode} setDarkMode={setDarkMode} username={username} isLogged={isLogged} setisLogged={setisLogged} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/use-rules" element={<UseRules />} />
-          <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} onLoginSuccess={handleLoginSuccess} />} />
-          <Route path="/traducir" element={<Translate isLoggedIn={isLoggedIn} username={username} />} />
+          <Route path="/login" element={<LoginForm setisLogged={setisLogged} onLoginSuccess={handleLoginSuccess} />} />
+          <Route path="/traducir" element={<Translate isLogged={isLogged} username={username} />} />
           <Route path="/registro" element={<RegisterForm />} />
           <Route path="/codigo" element={<Code/>} />
           <Route path="/componentes" element={<TranslateLibrary/>} />
