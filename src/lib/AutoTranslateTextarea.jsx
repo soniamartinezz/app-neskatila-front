@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNeskatila } from "./useNeskatila";
 import PropTypes from "prop-types";
 
-// Este un componente utiliza el Hook useNeskatila para traducir automaticamente el contenido que haya en un input.
+// Este es un componente utiliza el Custom Hook useNeskatila para traducir automaticamente el contenido que haya en un input.
 
 export const AutoTranslateTextArea = (props) => {
     const { sourceLanguage, targetLanguage } = props;
@@ -25,7 +25,7 @@ export const AutoTranslateTextArea = (props) => {
 
     const handleChange = async (event) => {
 
-        // El resultado de la traduccion se guarda en el estado textAreaValue, que se muestra en el Input.
+        // El resultado de la traduccion se guarda en el estado "textAreaValue", que se muestra en el Input.
 
         setTextAreaValue(event.target.value);
     };
@@ -34,6 +34,11 @@ export const AutoTranslateTextArea = (props) => {
         <textarea value={textAreaValue} onChange={handleChange} onBlur={handleTranslate} placeholder="Por favor, introduce el texto de tu página web o aplicación en el siguiente campo..."></textarea>
     )
 }
+
+
+// PropTypes permite validar las props que se van pasar a los componentes, en este caso AutoTranslatedLabel, ya que esta destinado a ser reutilizados en otros codigos. De esta manera,
+// verificamos si las propiedades cumplen con los valores que queresmos para este componente. Nos sirve como una deteccion temprana de errores al recibir propiedades con valores incorrectos.
+
 
 AutoTranslateTextArea.propTypes = {
     sourceLanguage: PropTypes.string,

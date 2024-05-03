@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-//Orientacion a objetos. "class" se utiliza para definir objetos, es como un molde para crear objetos basandose en los atributos y funciones que tiene dentro.
-//En este caso crearimos un objeto llamado "Neskatila" con dos propiedades, apikey e serverURL. Seran necesarios para el uso de la dependencia.
+
+//En el contexto de la programacion orientada a objetos, la palabra clave class se utiliza para definir una plantilla para la creacion de objetos. 
+//Esta plantilla incluye atributos y funciones que describen las caracteristicas y comportamientos del objeto
+//En este caso especifico, estamos definiendo una clase llamada Neskatila. Esta clase tiene dos propiedades: apiKey y serverURL. 
+//Estas propiedades son esenciales para el funcionamiento de la dependencia Neskatila.
 
 
 export class Neskatila {
@@ -9,17 +12,19 @@ export class Neskatila {
     serverURL = ""
 
 
-// "Static", metodo estatico, lo ponemos para poder usar (o invocar) la funcion (o metodo) "init" y "translate" sin necesidad de tener que crear una instancia. 
-// (sin crear un objeto definido en Class Neskatila). Es decir, sin tener que crear un instancia con un "new" (como hacemos con mongoose para definir el objeto que va a la base de datos)
-// Hacemos esto para que en el front, en App.jsx, gracias a "init" definamos un objeto en el que incluimos "serverURL" y podamos definir contra que backend va. Si no se informa por defecto sera local (por defecto puerto 3000) o uno ya subido a Internet.
-// Apikey es nuestro codigo de seguridad para que solo usuarios registrados puedan usar la dependencia.
+// "static" para definir metodos estaticos, en este caso "init" y "translate". Estos metodos se pueden invocar directamente desde la clase Neskatila, sin necesidad de crear una instancia de la clase.
+// Esto significa que no necesitamos usar "new" en una instancia para crear un objeto Neskatila antes de usar estos metodos.
+// El metodo "init" se utiliza para establecer la configuración de "Neskatila", incluyendo la serverURL que determina a que servidor backend se conectara. Si no se proporciona una serverURL, se usara ‘http://localhost:3000’ por defecto.
+// "apiKey" es un codigo de seguridad que permite que solo los usuarios registrados puedan usar la dependencia "Neskatila".
 
     static init(config) {
         this.apiKey = config.apiKey;
         this.serverURL = config.serverURL || "http://localhost:3000";
     }
 
-//Llamada mediante axios al backen, local o de internet dependiendo de como se defina "init" en serverURL.
+
+//Llamada mediante axios al backend, local o subido a Internet, dependiendo de como se defina en serverURL del metodo "init".
+
 
     static translate = async (srcLanguage, dstLanguage, word) => {
         try {
@@ -36,8 +41,11 @@ export class Neskatila {
 
 }
 
-// Creamos la funcion "initNekatila" la cual recibe un objeto formado por las propiedades definidas en la funcion (o metodo) init, que son apiKey y serverURL. Despues la invocaremos en Front en App.jsx 
-// y definir así la Apikey nuestra, para poder utilizar useNeskatila, y el backend contra la que vamos, local o uno ya subido a Internet.
+
+// Definimos la funcion initNeskatila que acepta un objeto con las propiedades apiKey y serverURL, las cuales se definen en el metodo init. Esta función se invocara en el archivo App.jsx del front-end. 
+// Al invocar initNeskatila, establecemos nuestra apiKey para poder utilizar useNeskatila, y especificamos el servidor backend al que nos conectaremos, que puede ser local o estar alojado en Internet. 
+// Si no se proporciona una serverURL, se usara ‘http://localhost:3000’ por defecto.
+
 
 export function initNeskatila(config) {
     Neskatila.init(config)

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNeskatila } from "./useNeskatila";
 import PropTypes from "prop-types";
 
-// Este es un componente utiliza el custom Hook useNeskatila para traducir automaticamente su contenido.
+// Este es un componente que utiliza el Custom Hook "useNeskatila" para traducir automaticamente su contenido.
 
 export const AutoTranslatedLabel = (props) => {
 
