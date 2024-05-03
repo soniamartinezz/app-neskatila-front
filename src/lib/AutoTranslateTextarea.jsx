@@ -15,7 +15,6 @@ export const AutoTranslateTextArea = (props) => {
         try {
             const texto = await translate(sourceLanguage, targetLanguage, event.target.value);
             setTextAreaValue(texto);
-            console.log(texto);
         } catch (error) {
             console.error(error);
         }

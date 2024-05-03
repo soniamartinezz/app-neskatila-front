@@ -48,12 +48,12 @@ function TranslateLibrary() {
                     <p>En la pestaña "Código" los usuarios pueden consultar los códigos de los componentes mostrados, junto con notas aclaratorias sobre su funcionamiento.</p>
                     
                     <h2 className='subtitle'>AutoTranslatedLabel</h2>
-                    <ButtonTranslate OnButton={handleChangeLanguage} />
                     <p>Para poder utilizarlo se importa el componente al fichero de la siguiente manera:</p>
                     <code>import {AutoTranslatedLabelComoTexto} from "neskatila"</code>
                     <p>Luego de importarlo, se completa el componente:</p>
                     <code>AutoTranslatedLabel value="" sourceLanguage="" targetLanguage="" css=""</code>
                     <h4>Aquí se presenta una demostración de cómo un texto de ejemplo se traduce automáticamente al hacer clic en el botón.</h4>
+                    <ButtonTranslate OnButton={handleChangeLanguage} />
                     {isLoading ? (
                             <Spinner />
                         ) : (
@@ -63,8 +63,14 @@ function TranslateLibrary() {
                     <h2 className='subtitle'>AutoTranslateTextArea</h2>
                     <p>Para poder utilizarlo se importa el componente de la siguiente manera:</p>
                     <code>import {AutoTranslateTextAreaComoTexto} from "neskatila"</code>
-                    <p>Luego, el usuario escribe texto en el campo de entrada. Cuando finaliza la interacción con él, es decir, cuando pierde el foco (evento onBlur), el texto se traducirá automáticamente.</p>
+                    <p>Luego, el usuario escribe texto en el campo de entrada. Cuando finaliza la interacción con él, es decir, cuando pierde el foco (evento onBlur), el texto se traducirá inmediata.</p>
                     <div className="translate">
+                        {targetLanguage === 'eu' && (
+                            <p>Traducción automática de Castellano a Euskera</p>
+                        )}
+                        {targetLanguage === 'es' && (
+                            <p>Traducción automática de Euskera a Castellano</p>
+                        )}
                         <AutoTranslateTextArea sourceLanguage={sourceLanguage} targetLanguage={targetLanguage} />
                     </div>
                 </section>

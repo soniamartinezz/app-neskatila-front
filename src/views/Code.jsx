@@ -38,7 +38,7 @@ function Code() {
   return (
     <>
       <main className='container'>
-      <section className="content" >
+      <section className="content list-code">
           <p>Aquí se podrá visualizar el código fuente de Neskatila, incluyendo ejemplos de componentes desarrollados con React mediante la dependencia. Para facilitar la comprensión, se incluyen notas aclaratorias.</p>
           {data && data.map((item, index) => (
             <div key={index} onClick={() => handleClick(item)}>   
