@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 
@@ -14,6 +14,11 @@ function LoginForm({ setisLogged, onLoginSuccess }) {
 
         const lowercaseUsername = username.toLowerCase();
         const lowercasePassword = password.toLowerCase();
+
+        // Verificar si se han completado ambos campos
+        if (!username || !password) {
+            return;
+        }
 
         // Datos que se van a enviar en la solicitud de inicio de sesión
         const data = { username: lowercaseUsername, password: lowercasePassword };
@@ -31,9 +36,10 @@ function LoginForm({ setisLogged, onLoginSuccess }) {
             // Comprobar el estado de la solicitud
             if (response.ok) {
                 onLoginSuccess(username);
-                setisLogged(true); 
+                localStorage.setItem('isLogged', true);
                 localStorage.setItem('username', username);
-                localStorage.setItem('isLogged', true); 
+                setUsername(''); 
+                setisLogged(true);
                 navigate('/traducir');
             } else {
                 const errorMessage = await response.text();
