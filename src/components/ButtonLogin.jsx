@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function ButtonLogin({ username, isLogged }) {
   const navigate = useNavigate();
-  const location = useLocation();
   const [loggedIn, setLoggedIn] = useState(isLogged);
 
   // Cambios en la prop 'isLogged'
   useEffect(() => {
-    setLoggedIn(isLogged);
   }, [isLogged]);
-
+  
   const formatUsername = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1);
   };
@@ -18,22 +16,19 @@ function ButtonLogin({ username, isLogged }) {
   const handleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('isLogged');
-    setLoggedIn(false);
+    setLoggedIn(false); // Actualizar estado de autenticación localmente
     navigate('/');
   };
 
   const handleLogin = () => {
-    setLoggedIn(true); // Actualizar loggedIn
+    setLoggedIn(true); // Actualizar estado de autenticación localmente
     navigate('/login');
   };
-
-  // Comprobar si estamos en la página de inicio de sesión o de registro
-  const isLoginPage = location.pathname === '/login' || location.pathname === '/register';
 
   return (
     <>
       {/* Renderizar el select si estamos logueados */}
-      {loggedIn && !isLoginPage && (
+      {loggedIn && (
         <div className='login-options'>
           <select className="selector" value={username} onChange={handleLogout}>
             <option value={username}>{formatUsername(username)}</option>
@@ -46,8 +41,8 @@ function ButtonLogin({ username, isLogged }) {
         </div>
       )}
 
-      {/* Renderizar el botón de inicio de sesión si no estamos logueados o estamos en la página de inicio de sesión o registro */}
-      {!loggedIn || isLoginPage ? (
+      {/* Renderizar el botón de inicio de sesión si no estamos logueados */}
+      {!loggedIn ? (
         <button type="button" onClick={handleLogin}>Iniciar sesión</button>
       ) : null}
     </>
