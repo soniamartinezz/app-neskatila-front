@@ -867,6 +867,7 @@ select option {
 
 	.logo-thebrigde {
 		margin-top: 24px;
+		order: 1;
 	}
 
 	.logo-thebrigde,
