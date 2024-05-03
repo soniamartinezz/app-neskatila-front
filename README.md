@@ -1,6 +1,6 @@
 # Proyecto Neskatila
 
-Neskatila es una biblioteca de traducción desarroyada y subida por nosotros a npm (https://www.npmjs.com/package/neskatila) la que facilita la conversión de textos entre castellano y euskera en entornos web.
+Neskatila es una biblioteca de traducción desarrollada y subida por nosotros a npm (https://www.npmjs.com/package/neskatila) la que facilita la conversión de textos entre castellano y euskera en entornos web.
 
 Dentro de este proyecto esta su presentación en Web. En la cual se muestra su código, se explica su funcionamiento y se demuestra como funciona y como puede utilizarse en React. Tambien tiene un registro de usuarios, necesario para el uso de la dependencia y permite guardar sus traducciones.
 
