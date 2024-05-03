@@ -39,9 +39,9 @@ function ButtonLogin({ username, isLogged }) {
             <option value={username}>{formatUsername(username)}</option>
             <option value="logout">Cerrar sesión</option>
           </select>
-          <div>
-            <p>Tu código: 212312321</p>
-            <p>Tu serverURL: https://app-neskatila-back-production.up.railway.app</p>
+          <div className='use-api'>
+            <p>Code: <span>212312321</span></p>
+            <p>Server: <span>https://app-neskatila-back-production.up.railway.app</span></p>
           </div>
         </div>
       )}

@@ -89,8 +89,8 @@ function RegisterForm() {
               <button className="login" type="button">Inicia sesión</button>
             </Link>
           </div>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
     </>
   );

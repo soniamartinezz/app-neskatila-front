@@ -65,8 +65,8 @@ function LoginForm({ setIsLoggedIn, onLoginSuccess }) {
                         </Link>
                         <button className="login" type="submit">Iniciar sesión</button>
                     </div>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
                 </form>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
             </div>
             <Footer />
         </>
