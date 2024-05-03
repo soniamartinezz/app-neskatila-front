@@ -856,9 +856,14 @@ select option {
 	}
 
 	.images {
+		margin-top: 24px;
 		flex-direction: column;
 	}
 
+	.logo-thebrigde {
+		margin-bottom: 24px;
+	}
+	
 	.logo-thebrigde,
 	.logo-neskatila {
 		width: 100%;
