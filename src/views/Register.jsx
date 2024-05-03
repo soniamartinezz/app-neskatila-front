@@ -15,13 +15,16 @@ function RegisterForm() {
       return;
     }
 
+    const lowercaseUsername = username.toLowerCase();
+    const lowercasePassword = password.toLowerCase();
+
     try {
       const response = await fetch('https://app-neskatila-back-production.up.railway.app/registro', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username: lowercaseUsername, password: lowercasePassword })
       });
   
       if (response.ok) {

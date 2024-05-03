@@ -268,6 +268,10 @@
 	margin-bottom: 0;
 }
 
+.content.use-react .button-language {
+	margin: 16px 0 42px 0;
+}
+
 .content.use-rules ol {
 	margin-top: 0;
 	width: inherit;
@@ -858,12 +862,13 @@ select option {
 	.images {
 		margin-top: 24px;
 		flex-direction: column;
+		order: 0;
 	}
 
 	.logo-thebrigde {
-		margin-bottom: 24px;
+		margin-top: 24px;
 	}
-	
+
 	.logo-thebrigde,
 	.logo-neskatila {
 		width: 100%;
@@ -900,6 +905,13 @@ select option {
 
 	.code {
 		width: auto;
+	}
+
+	.login-options {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
 	}
 }
 

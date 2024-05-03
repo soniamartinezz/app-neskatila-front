@@ -12,8 +12,11 @@ function LoginForm({ setIsLoggedIn, onLoginSuccess }) {
     const handleLogin = async (event) => {
         event.preventDefault();
 
+        const lowercaseUsername = username.toLowerCase();
+        const lowercasePassword = password.toLowerCase();
+
         // Datos que se van a enviar en la solicitud de inicio de sesión
-        const data = { username, password };
+        const data = { username: lowercaseUsername, password: lowercasePassword };
 
         try {
             // Solicitud de inicio de sesión al servidor
