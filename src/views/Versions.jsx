@@ -17,8 +17,8 @@ function Versions() {
                                 <td>1.0.3</td>
                                 <td>
                                     <ul>
-                                        <li>Se incluye la componente AutoTranslateTextArea (Necesario React)</li>
-                                        <li>Se incluye la componente AutoTranslatedLabel (Necesario React)</li>
+                                        <li>Se incluye el componente AutoTranslateTextArea (Necesario React)</li>
+                                        <li>Se incluye el componente AutoTranslatedLabel (Necesario React)</li>
                                         <li>Se incluye la función initNeskatila para autenticarse</li>
                                     </ul>
                                 </td>
