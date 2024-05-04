@@ -232,7 +232,6 @@
 }
 
 .container p {
-	text-align: justify;
 	cursor: default;
 }
 
@@ -258,7 +257,7 @@
 .content.use-rules,
 .content.use-react {
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 } 
 
 .content.use-rules h4 {
@@ -854,7 +853,7 @@ select option {
 	}
 	
 	.content {
-		width: inherit;
+		width: 100%;
 	}
 
 	.navbar ul {
