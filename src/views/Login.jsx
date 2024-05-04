@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 
-function LoginForm({ setisLogged, onLoginSuccess }) {
+function LoginForm({ setIsLogged, onLoginSuccess }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -39,7 +39,7 @@ function LoginForm({ setisLogged, onLoginSuccess }) {
                 localStorage.setItem('isLogged', true);
                 localStorage.setItem('username', username);
                 setUsername(''); 
-                setisLogged(true);
+                setIsLogged(true);
                 navigate('/traducir');
             } else {
                 const errorMessage = await response.text();

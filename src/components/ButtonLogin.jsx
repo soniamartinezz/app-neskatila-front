@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ButtonLogin({ isLogged, setisLogged }) {
+function ButtonLogin({ isLogged, setIsLogged }) {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(isLogged);
   const [username, setUsername] = useState('');
@@ -31,7 +31,7 @@ function ButtonLogin({ isLogged, setisLogged }) {
     localStorage.removeItem('username');
     localStorage.removeItem('isLogged');
     setLoggedIn(false);
-    setisLogged(false);
+    setIsLogged(false);
     setUsername('');
     navigate('/');
   };

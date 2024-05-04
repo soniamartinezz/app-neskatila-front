@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 function ButtonFavorites({ onClick }) {
     const [buttonText, setButtonText] = useState('Guardar');
 
-    const handleClick = async () => {
+    const handleChangeMode = async () => {
         setButtonText('¡Guardado!');
         await onClick();
         setTimeout(() => {
@@ -15,7 +15,7 @@ function ButtonFavorites({ onClick }) {
         <button 
             className="button-view"
             type="button"
-            onClick={handleClick}
+            onClick={handleChangeMode}
         >
             {buttonText}
         </button>

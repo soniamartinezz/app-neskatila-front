@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ButtonLogin from './ButtonLogin';
 import ToggleSwitch from './ToggleSwitch';
 
-function Navbar({ darkMode, setDarkMode, username, isLogged, setisLogged }) {
+function Navbar({ darkMode, setDarkMode, username, isLogged, setIsLogged }) {
   const location = useLocation();
   const activePath = location.pathname;
 
@@ -11,7 +11,7 @@ function Navbar({ darkMode, setDarkMode, username, isLogged, setisLogged }) {
     <>
       <div className="header"></div>
       <div className='options-user'>
-        <ButtonLogin username={username} isLogged={isLogged} setisLogged={setisLogged} />
+        <ButtonLogin username={username} isLogged={isLogged} setIsLogged={setIsLogged} />
         <ToggleSwitch setDarkMode={setDarkMode} darkMode={darkMode} />
       </div>
       <nav className='navbar'>

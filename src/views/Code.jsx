@@ -18,7 +18,7 @@ function Code() {
     fetchData();
   }, [path]);
 
-  const handleClick = async (item) => {
+  const handleChangeMode = async (item) => {
     if (item.type === 'dir') {
       setPath(item.path);
     } else if (item.type === 'file') {
@@ -41,7 +41,7 @@ function Code() {
       <section className="content list-code">
           <p>Aquí se podrá visualizar el código fuente de Neskatila, incluyendo ejemplos de componentes desarrollados con React mediante la dependencia. Para facilitar la comprensión, se incluyen notas aclaratorias.</p>
           {data && data.map((item, index) => (
-            <div key={index} onClick={() => handleClick(item)}>   
+            <div key={index} onClick={() => handleChangeMode(item)}>   
               <details>
                 <summary>{item.path}</summary>
               </details>
