@@ -908,7 +908,8 @@ select option {
 		text-align: center;
 	}
 
-	.code {
+	.code,
+	.content.use-rules ol {
 		width: auto;
 	}
 
