@@ -260,10 +260,6 @@
 	align-items: flex-start;
 } 
 
-.content.use-react textarea {
-	width: 100%;
-}
-
 .content.use-rules h4 {
 	margin-bottom: 0;
 }
@@ -851,6 +847,15 @@ select option {
 }
 
 @media only screen and (max-width: 768px) {
+	.container {
+		padding: 0 16px;
+		width: auto;
+	}
+	
+	.content {
+		width: 100%;
+	}
+
 	.navbar ul {
 		flex-direction: column;
 	}
@@ -878,9 +883,8 @@ select option {
 
 	.button-language,
 	.button-save,
-	.button-view,
-	.translate textarea {
-		width: 100%;
+	.button-view {
+		width: 242px;
 	}
 
 	.formulario-login .buttons button, 
@@ -913,6 +917,11 @@ select option {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 8px;
+	}
+
+	.info {
+		text-align: justify;
+		margin-top: 0;
 	}
 }
 
