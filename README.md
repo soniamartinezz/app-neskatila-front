@@ -327,7 +327,7 @@ npm i react
 
 1.- Instalación: Los usuarios necesitan instalar la dependencia en su proyecto.
 
-npm install neskatilla
+npm install neskatila
 
 2.- Inicialización: Para poder utilizar Neskatila, es necesario que los usuarios la inicialicen utilizando la clave API y la serverURL que se les proporciona al estar registrados en nuestra aplicación web.
 

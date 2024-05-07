@@ -36,7 +36,7 @@ function UseRules() {
                         <li><b>Instalación:</b> Los usuarios necesitan instalar la dependencia en su proyecto.
                             <br />
                             <br />
-                            <code>npm install neskatilla</code>
+                            <code>npm install neskatila</code>
                             <br />
                             <br />
                         </li>
@@ -164,7 +164,7 @@ export default UseRules;
 //                             <p>
 //                                 <b>Instalación:</b> Los usuarios necesitan instalar la dependencia en su proyecto.
 //                             </p>
-//                             <code>npm install neskatilla</code>
+//                             <code>npm install neskatila</code>
 //                         </li>
 //                         <li>
 //                             <p>
